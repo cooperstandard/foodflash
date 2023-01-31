@@ -40,7 +40,7 @@ function App() {
         recipes && recipes.map(recipe => {
 
           return(
-            <div key={recipe._id} style={{alignItems:'center',margin:'20px 60px'}}>
+            <div key={recipe._id} style={{alignItems:'center',margin:'20px 60px',background:'grey'}}>
             <h4>{recipe.title}</h4>
             <ul>{recipe.ingredients.map(ingredient => {
               return(
