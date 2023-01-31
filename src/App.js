@@ -8,7 +8,7 @@ function App() {
   const [recipes, setRecipes]=useState([])
 
   const fetchData = () => {
-    fetch("http://concierge.cooperstandard.org:3000/api/all")
+    fetch("https://concierge.cooperstandard.org:8443/api/all")
       .then(response => {
         return response.json()
       })
@@ -44,9 +44,10 @@ function App() {
             <h4>{recipe.title}</h4>
             <ul>{recipe.ingredients.map(ingredient => {
               return(
-                <li>{ingredient}</li>
+                <li key = {ingredient}>{ingredient}</li>
               )
             })}</ul>
+            <img src = {recipe.photos[0]} width="300" height="400"></img>
             
 
             </div>
