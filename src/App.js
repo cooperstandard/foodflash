@@ -6,7 +6,7 @@ import React,{useEffect, useState} from 'react';
 function App() {
 
   const [recipes, setRecipes]=useState([])
-/*
+
   const fetchData = () => {
     fetch("http://concierge.cooperstandard.org:3000/api/all")
       .then(response => {
@@ -17,9 +17,9 @@ function App() {
         setRecipes(data)
       })
   }
-*/
+
   useEffect(() => {
-    fetchRecipes();
+    fetchData();
   }, [])
 
   /*
@@ -40,8 +40,13 @@ function App() {
         recipes && recipes.map(recipe => {
 
           return(
-            <div key={recipe.id} style={{alignItems:'center',margin:'20px 60px'}}>
+            <div key={recipe._id} style={{alignItems:'center',margin:'20px 60px'}}>
             <h4>{recipe.title}</h4>
+            <ul>{recipe.ingredients.map(ingredient => {
+              return(
+                <li>{ingredient}</li>
+              )
+            })}</ul>
             
 
             </div>
