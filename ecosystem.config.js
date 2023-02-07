@@ -4,7 +4,7 @@ module.exports = {
         name: "foodflash",
         exec_mode: "cluster",
         instances: "1",
-        script: "./index.js", // your script
+        script: "./src/index.js", // your script
         args: "start",
         env: {
           
