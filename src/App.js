@@ -36,12 +36,12 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className={"App" + " " + styles.background}>
       {
         recipes && recipes.map(recipe => {
 
           return(
-            <div key={recipe._id} style={{alignItems:'center',margin:'20px 60px',background:'grey'}}>
+            <div key={recipe._id} className="test"> 
             <h4>{recipe.title}</h4>
             <ul>{recipe.ingredients.map(ingredient => {
               return(
