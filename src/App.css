@@ -36,3 +36,44 @@
     transform: rotate(360deg);
   }
 }
+.background{
+  position: relative;
+  width: 390px;
+  height: 844px;
+  background: #0000;
+  }
+  
+  .RecipeImage{
+    position: absolute;
+    width: 369px;
+    height: 456px;
+    left: 11px;
+    top: 176px;
+  }
+  
+  .LikeButton{
+    position: absolute;
+    width: 95px;
+    height: 95px;
+    left: 285px;
+    top: 680px;
+    background: #00B937;
+  }
+  
+  .DislikeButton{
+    position: absolute;
+    width: 95px;
+    height: 95px;
+    left: 10px;
+    top: 680px;
+    background: #FF0006;
+  }
+  
+  .SavedButtonShape{
+    position: absolute;
+    width: 60px;
+    height: 25px;
+    left: 0px;
+    top: 0px;
+    background: #4A76E9;
+  }
