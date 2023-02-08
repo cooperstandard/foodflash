@@ -36,7 +36,7 @@ function App() {
 
 
   return (
-    <div className={"App" + " " + styles.background}>
+    <div className={"App"}>
       {
         recipes && recipes.map(recipe => {
 
