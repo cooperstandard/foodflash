@@ -9,7 +9,7 @@ function App() {
   const [recipes, setRecipes]=useState([])
 
   const fetchData = () => {
-    fetch("https://concierge.cooperstandard.org:8443/api/all")
+    fetch("https://concierge.cooperstandard.org:8443/api/all") //TODO this is changing to "https://concierge.cooperstandard.org:8443/api/recipe/all"
       .then(response => {
         return response.json()
       })
