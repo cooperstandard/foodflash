@@ -8,7 +8,7 @@ function App() {
   const [recipes, setRecipes]=useState([])
 
   const fetchData = () => {
-    fetch("https://concierge.cooperstandard.org:8443/api/all")
+    fetch("https://concierge.cooperstandard.org:8443/api/recipe/all")
       .then(response => {
         return response.json()
       })
@@ -40,14 +40,19 @@ function App() {
         recipes && recipes.map(recipe => {
 
           return(
-            <div key={recipe._id} style={{alignItems:'center',margin:'20px 60px',background:'grey'}}>
-            <h4>{recipe.title}</h4>
+            <div key={recipe._id} className = "background">
+            <h1>{recipe.title}</h1>
+            <h3>{recipe.description}</h3>
+            <img src = {recipe.photos[0]} className = "RecipeImage"></img>
+            <button className = "DislikeButton"></button>
+            <button className = "LikeButton"></button>
             <ul>{recipe.ingredients.map(ingredient => {
               return(
                 <li key = {ingredient}>{ingredient}</li>
               )
             })}</ul>
-            <img src = {recipe.photos[0]} width="300" height="400"></img>
+            
+            
             
 
             </div>

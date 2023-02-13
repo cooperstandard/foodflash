@@ -58,6 +58,7 @@ background: #0000;
   left: 285px;
   top: 680px;
   background: #00B937;
+  border-radius: 50%
 }
 
 .DislikeButton{
@@ -67,6 +68,7 @@ background: #0000;
   left: 10px;
   top: 680px;
   background: #FF0006;
+  border-radius: 50%
 }
 
 .SavedButtonShape{
