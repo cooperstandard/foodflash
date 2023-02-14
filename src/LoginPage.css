@@ -1,0 +1,85 @@
+.createAccButton{
+    position: absolute;
+    width: 327px;
+    height: 93px;
+    left: 32px;
+    top: 600px;
+    background: #4A76E9;
+    border-radius: 20%;
+}
+.createAccText{
+position: absolute;
+left: 19.88%;
+right: 20.18%;
+top: 25.81%;
+bottom: 25.81%;
+
+font-family: 'Comic Neue';
+font-style: normal;
+font-weight: 400;
+font-size: 30px;
+line-height: 35px;
+
+color: #FFFFFF;
+
+}
+
+.loginButton{
+    position: absolute;
+    width: 327px;
+    height: 93px;
+    left: 32px;
+    top: 714px;
+    background: #4A76E9;
+    border-radius: 20%;
+}
+
+.loginBText{
+    position: absolute;
+left: 39.14%;
+right: 39.45%;
+top: 31.18%;
+bottom: 31.18%;
+
+font-family: 'Comic Neue';
+font-style: normal;
+font-weight: 400;
+font-size: 30px;
+line-height: 35px;
+
+text-align: center;
+
+color: #FFFFFF;
+}
+
+.titleText{
+position: absolute;
+width: 148px;
+height: 71px;
+left: 121px;
+top: 90px;
+
+font-family: 'Comic Neue';
+font-style: normal;
+font-weight: 400;
+font-size: 60px;
+line-height: 69px;
+
+color: #000000;
+}
+
+.emailBox{
+position: absolute;
+width: 327px;
+height: 47px;
+left: 32px;
+top: 279px;
+}
+
+.passwordBox{
+    position: absolute;
+width: 327px;
+height: 47px;
+left: 32px;
+top: 362px;
+}

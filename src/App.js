@@ -36,8 +36,8 @@ function App() {
 
   return (
     <div className="App">
-      {
-        recipes && recipes.map(recipe => {
+     {
+       recipes && recipes.map(recipe => {
 
           return(
             <div key={recipe._id} className = "background">
@@ -59,7 +59,7 @@ function App() {
           )
 
 
-        })
+       })
       }
     
     </div>
