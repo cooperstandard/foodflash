@@ -92,3 +92,22 @@
     left: 32px;
     top: 445px;
 }
+
+.errorText {
+    position: absolute;
+    width: 266px;
+    height: 18px;
+    left: 38px;
+    top: 422px;
+
+    font-family: 'Comic Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 17px;
+    /* identical to box height */
+
+
+    color: #FF0006;
+
+}

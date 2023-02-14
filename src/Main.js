@@ -1,7 +1,7 @@
 
 import React from 'react'
 import LoginPage from './LoginPage';
-import Recipies from './Recipies';
+import Recipes from './Recipes';
 import CreateAccount from './CreateAccount';
 import {Routes,Route} from 'react-router-dom';
 const Main = () => {
@@ -10,7 +10,7 @@ const Main = () => {
         <Route exact path = '' element = {<LoginPage/>}></Route>
         <Route exact path = '/login' element = {<LoginPage/>}></Route>
         <Route exact path = '/register' element = {<CreateAccount/>}></Route>
-        <Route exact path = '/recipies' element = {<Recipies/>}></Route>
+        <Route exact path = '/recipes' element = {<Recipes/>}></Route>
       </Routes>
 
   

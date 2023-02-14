@@ -1,10 +1,10 @@
 //import logo from './logo.svg';
-import './Recipies.css';
+import './Recipes.css';
 import './App.css'
 import Axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
-function Recipies() {
+function Recipes() {
 
   const [recipes, setRecipes] = useState([])
 
@@ -37,8 +37,8 @@ function Recipies() {
 
   return (
     <div className="App">
-      {
-        recipes && recipes.map(recipe => {
+      { 
+        recipes.map(recipe => {
 
           return (
           
@@ -62,4 +62,4 @@ function Recipies() {
   );
 }
 
-export default Recipies;
+export default Recipes;

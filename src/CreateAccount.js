@@ -2,7 +2,7 @@ import Axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import './LoginPage.css';
 import './App.css';
-import './Recipies.css'
+import './Recipes.css'
 
 class CreateAccount extends React.Component {
 

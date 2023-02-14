@@ -2,10 +2,18 @@ import Axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import './LoginPage.css';
 import './App.css';
-import './Recipies.css'
+import './Recipes.css'
 import './CreateAccount.js'
-import Main from './index.js'
 import { Link } from "react-router-dom"
+
+/*function PassError(props) {
+    const errorID = props.errorID;
+    if (typeof (errorID) == 'undefined') {
+        return <p className="errorText">Your username or password is incorrect!</p>;
+    } else {
+        return <p></p>;
+    }
+}*/
 class LoginForm extends React.Component {
     HandleLogin = (event) => {
         event.preventDefault();
@@ -17,16 +25,13 @@ class LoginForm extends React.Component {
         fetch('https://concierge.cooperstandard.org:8443/api/user/login', login)
             .then(response => response.json())
             .then(data => this.setState({ postId: data.id }));
+
     }
 
-
     render() {
-
         return (
-
             <div className="background">
                 <h1 className="titleText">Login</h1>
-
                 <form onSubmit={this.HandleLogin}>
                     <input type="text" id="email" name="email" className="emailBox" placeholder="Email"></input>
                     <input type="text" id="password" name="password" className="passwordBox" placeholder="Password"></input>
