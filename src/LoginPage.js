@@ -6,14 +6,14 @@ import './Recipes.css'
 import './CreateAccount.js'
 import { Link } from "react-router-dom"
 
-/*function PassError(props) {
+function PassError(props) {
     const errorID = props.errorID;
-    if (typeof (errorID) == 'undefined') {
+    if (typeof (errorID) == 401) {
         return <p className="errorText">Your username or password is incorrect!</p>;
     } else {
         return <p></p>;
     }
-}*/
+}
 class LoginForm extends React.Component {
     HandleLogin = (event) => {
         event.preventDefault();
