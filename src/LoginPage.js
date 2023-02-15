@@ -4,7 +4,7 @@ import './LoginPage.css';
 import './App.css';
 import './Recipes.css'
 import './CreateAccount.js'
-import { Link , useNavigate} from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 
 
@@ -18,7 +18,7 @@ function PassError(props) {
 }
 
 class LoginForm extends React.Component {
-    
+
     HandleLogin = (event) => {
         event.preventDefault();
         const login = {
@@ -27,15 +27,26 @@ class LoginForm extends React.Component {
             body: JSON.stringify({ email: event.target.email.value, password: event.target.password.value })
         };
         fetch('https://concierge.cooperstandard.org:8443/api/user/login', login)
-            .then(response => response.json())
-            .then(responseJSON => {
-                console.log(responseJSON.success);
-                if (responseJSON.success == true){
-                
+            .then(response => {
+                return response.json()
+            })
+            .then(data => {
+                console.log(data.userId);
+                if (data != 'undefined') {
+                    const testAuth = {
+                        method: 'GET',
+                        headers: { 'Content-Type': 'application/json' , 'authorization' : 'Bearer ' + data.token},
+                    };
+                    fetch('https://concierge.cooperstandard.org:8443/api/authenticate', testAuth)
+                        .then(response => {
+                            return response.json()
+                        }).then(auth => {
+                            console.log(auth);
+                        })
                 }
             })
-            //.then(data => this.setState({ postId: data.id, }));
-        }
+        //.then(data => this.setState({ postId: data.id, }));
+    }
 
     render() {
         return (
