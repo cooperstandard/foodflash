@@ -4,7 +4,9 @@ import './LoginPage.css';
 import './App.css';
 import './Recipes.css'
 import './CreateAccount.js'
-import { Link } from "react-router-dom"
+import { Link , useNavigate} from "react-router-dom"
+
+
 
 function PassError(props) {
     const errorID = props.errorID;
@@ -14,7 +16,9 @@ function PassError(props) {
         return <p></p>;
     }
 }
+
 class LoginForm extends React.Component {
+    
     HandleLogin = (event) => {
         event.preventDefault();
         const login = {
@@ -24,9 +28,14 @@ class LoginForm extends React.Component {
         };
         fetch('https://concierge.cooperstandard.org:8443/api/user/login', login)
             .then(response => response.json())
-            .then(data => this.setState({ postId: data.id }));
-
-    }
+            .then(responseJSON => {
+                console.log(responseJSON.success);
+                if (responseJSON.success == true){
+                
+                }
+            })
+            //.then(data => this.setState({ postId: data.id, }));
+        }
 
     render() {
         return (

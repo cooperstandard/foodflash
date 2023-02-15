@@ -4,9 +4,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes , Route } from 'react-router-dom';
 
-/*
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+/*root.render(
   <React.StrictMode>
     <CreateAccount/>
   </React.StrictMode>
