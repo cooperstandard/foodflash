@@ -4,76 +4,80 @@ import './App.css'
 import Axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
-function Recipes() {
-
-  const [recipes, setRecipes] = useState([])
-
-  const fetchData = () => {
-    fetch("https://concierge.cooperstandard.org:8443/api/recipe/all")
-      .then(response => {
-        return response.json()
-      })
-      .then(data => {
-        console.log(data)
-        setRecipes(data)
-
-      })
-  }
-  useEffect(() => {
-    fetchData();
-  }, [])
-
-  /*
-  useEffect(() => {
-    console.log(recipes)
-  }, [recipes]);
-  */
-  const fetchRecipes = async () => {
-    const response = Axios("/api/all");
-    console.log(response)
-    setRecipes(response.data);
-  }
-
-  /*
-    async function asyncCall(){
-      console.log("calling");
-      const result = await fetchData();
-      console.log(result);
+class Recipes extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: null,
+      error: null,
+      recipes: null,
+      pos: 0
     }
-    asyncCall();*/
-  
-  
-  if (recipes == []){
-    return(
-      <div />
-    )
   }
-  return (
-    <div className="App">
-      {
 
 
-
-        <div key={recipes[0]._id} className="background">
-          <h1>{recipes[0].title}</h1>
-          <h3>{recipes[0].description}</h3>
-          <img src={recipes[0].photos[0]} className="RecipeImage"></img>
-          <button className="DislikeButton"></button>
-          <button className="LikeButton"></button>
-          <ul>{recipes[0].ingredients.map(ingredient => {
-            return (
-              <li key={ingredient}>{ingredient}</li>
-            )
-          })}</ul>
-        </div>
-
-
+  HandleRecipes = async () => {
+    try {
+      const response = await fetch("https://concierge.cooperstandard.org:8443/api/recipe/all");
+      const data = await response.json();
+      if (typeof (data) !== 'undefined') {
+        this.setState({ recipes: data });
+        console.log(data);
+      } else {
+        throw new Error("Error Loading Recipes");
       }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  componentDidMount() {
+    this.HandleRecipes();
+  }
 
-    </div>
-  );
+  HandleLike = () => {
+    if (this.state.pos < this.state.recipes.length - 1) {
+      this.setState({ pos: this.state.pos + 1 })
+    } else {
+      this.setState({ pos: 0 });
+    }
+  }
+  HandleDislike = () => {
+    if (this.state.pos < this.state.recipes.length) {
+      this.setState({ pos: this.state.pos + 1 })
+    } else {
+      this.setState({ pos: 0 });
+    }
+  }
 
+  render() {
+
+
+    if (this.state.recipes && (this.state.pos >= 0)) {
+      return (
+        <div className="App">
+          {
+            <div key={this.state.recipes[this.state.pos]._id} className="background">
+              <h1>{this.state.recipes[this.state.pos].title}</h1>
+              <h3>{this.state.recipes[this.state.pos].description}</h3>
+              <img src={this.state.recipes[this.state.pos].photos[0]} className="RecipeImage"></img>
+              <button className="DislikeButton" onClick={this.HandleDislike}></button>
+              <button className="LikeButton" onClick={this.HandleLike}></button>
+              <ul>{this.state.recipes[this.state.pos].ingredients.map(ingredient => {
+                return (
+                  <li key={ingredient}>{ingredient}</li>
+                )
+              })}</ul>
+            </div>
+
+
+          }
+
+        </div>
+      )
+    } else {
+      <h1>Loading...</h1>
+    }
+  }
 }
-
 
 export default Recipes;

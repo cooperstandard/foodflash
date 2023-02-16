@@ -32,21 +32,21 @@ class LoginForm extends React.Component {
             this.setState({ error: error })
         }
     }
-    HandleAuth = async(auth) => {
+    HandleAuth = async (auth) => {
         try {
             const authHead = {
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json', 'authorization': 'Bearer ' + auth.token },
             };
             const response = await fetch('https://concierge.cooperstandard.org:8443/api/authenticate', authHead)
-            const authRes =  await response.json();    
-                    console.log(authRes);
-                    if (authRes.message == "token verification failed") {
-                        throw new Error("Error User Token Authentication");
-                    } else {
-                        console.log(authRes.message);
-                        this.setState({ user: authRes.user });
-                    }
+            const authRes = await response.json();
+            console.log(authRes);
+            if (authRes.message == "token verification failed") {
+                throw new Error("Error User Token Authentication");
+            } else {
+                console.log(authRes.message);
+                this.setState({ user: authRes.user });
+            }
         } catch (error) {
             console.log(error);
             this.setState({ error: error })
