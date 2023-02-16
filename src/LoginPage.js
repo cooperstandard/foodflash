@@ -1,57 +1,70 @@
-import Axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import './LoginPage.css';
 import './App.css';
 import './Recipes.css'
 import './CreateAccount.js'
-import { Link, useNavigate } from "react-router-dom"
+import { Link, redirect, Navigate } from "react-router-dom"
 
 
 
-function PassError(props) {
-    const errorID = props.errorID;
-    if (typeof (errorID) == 401) {
-        return <p className="errorText">Your username or password is incorrect!</p>;
-    } else {
-        return <p></p>;
-    }
-}
 
 class LoginForm extends React.Component {
+    state = { user: null, error: null };
 
-    HandleLogin = (event) => {
+    HandleLogin = async (event) => {
         event.preventDefault();
         const login = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: event.target.email.value, password: event.target.password.value })
         };
-        fetch('https://concierge.cooperstandard.org:8443/api/user/login', login)
-            .then(response => {
-                return response.json()
-            })
-            .then(data => {
-                console.log(data.userId);
-                if (data != 'undefined') {
-                    const testAuth = {
-                        method: 'GET',
-                        headers: { 'Content-Type': 'application/json' , 'authorization' : 'Bearer ' + data.token},
-                    };
-                    fetch('https://concierge.cooperstandard.org:8443/api/authenticate', testAuth)
-                        .then(response => {
-                            return response.json()
-                        }).then(auth => {
-                            console.log(auth);
-                        })
-                }
-            })
-        //.then(data => this.setState({ postId: data.id, }));
+        try {
+            const response = await fetch('https://concierge.cooperstandard.org:8443/api/user/login', login)
+            const data = await response.json();
+            console.log(data.userId);
+            if (data.message == "Wrong details please check at once") {
+                throw new Error("Error with login");
+            } else {
+                this.HandleAuth(data)
+            }
+        } catch (error) {
+            console.log(error);
+            this.setState({ error: error })
+        }
+    }
+    HandleAuth = async(auth) => {
+        try {
+            const authHead = {
+                method: 'GET',
+                headers: { 'Content-Type': 'application/json', 'authorization': 'Bearer ' + auth.token },
+            };
+            const response = await fetch('https://concierge.cooperstandard.org:8443/api/authenticate', authHead)
+            const authRes =  await response.json();    
+                    console.log(authRes);
+                    if (authRes.message == "token verification failed") {
+                        throw new Error("Error User Token Authentication");
+                    } else {
+                        console.log(authRes.message);
+                        this.setState({ user: authRes.user });
+                    }
+        } catch (error) {
+            console.log(error);
+            this.setState({ error: error })
+        }
     }
 
+
     render() {
+        let { user, error } = this.state;
         return (
             <div className="background">
                 <h1 className="titleText">Login</h1>
+                {user && (
+                    <Navigate to="/recipes" replace={true} />
+                )}
+                {error && (
+                    <p className="errorText">Your username or password is incorrect!</p>
+                )}
                 <form onSubmit={this.HandleLogin}>
                     <input type="text" id="email" name="email" className="emailBox" placeholder="Email"></input>
                     <input type="text" id="password" name="password" className="passwordBox" placeholder="Password"></input>

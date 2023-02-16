@@ -16,11 +16,7 @@ function Recipes() {
       .then(data => {
         console.log(data)
         setRecipes(data)
-        /*return new Promise(resolve => {
-          setTimeout(() => {
-            resolve(data);
-          }, 2000);
-        });*/
+
       })
   }
   useEffect(() => {
