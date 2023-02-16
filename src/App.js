@@ -4,8 +4,8 @@ import React, { useEffect, useState } from 'react';
 import Main from './Main'
 
 function App() {
-  return(
-    <div className = "App">
+  return (
+    <div className="App">
       <Main />
     </div>
   );

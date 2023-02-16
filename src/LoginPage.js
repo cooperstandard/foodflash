@@ -4,12 +4,17 @@ import './App.css';
 import './Recipes.css'
 import './CreateAccount.js'
 import { Link, redirect, Navigate } from "react-router-dom"
-
-
-
-
+import { userContext } from './userContext';
 class LoginForm extends React.Component {
-    state = { user: null, error: null };
+    constructor(props) {
+        super(props);
+        this.state = {
+            user: null,
+            error: null,
+            token: null,
+        }
+    }
+
 
     HandleLogin = async (event) => {
         event.preventDefault();
@@ -21,10 +26,10 @@ class LoginForm extends React.Component {
         try {
             const response = await fetch('https://concierge.cooperstandard.org:8443/api/user/login', login)
             const data = await response.json();
-            console.log(data.userId);
             if (data.message == "Wrong details please check at once") {
                 throw new Error("Error with login");
             } else {
+                this.setState({ token: data.token })
                 this.HandleAuth(data)
             }
         } catch (error) {
@@ -55,14 +60,13 @@ class LoginForm extends React.Component {
 
 
     render() {
-        let { user, error } = this.state;
         return (
             <div className="background">
                 <h1 className="titleText">Login</h1>
-                {user && (
-                    <Navigate to="/recipes" replace={true} />
+                {this.state.user && (
+                     <Navigate to="/recipes" replace={true} />
                 )}
-                {error && (
+                {this.state.error && (
                     <p className="errorText">Your username or password is incorrect!</p>
                 )}
                 <form onSubmit={this.HandleLogin}>
