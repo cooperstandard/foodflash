@@ -2,11 +2,11 @@
 import './Recipes.css';
 import './App.css'
 import Axios from 'axios';
-import React, {useState,useEffect,useLayoutEffect,useRef} from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 
 
-function Recipes () {
+function Recipes() {
   const [Recipes, setRecipes] = useState([]);
   var [Pos, setPos] = useState(0);
   const [Loaded, setLoaded] = useState("0")
@@ -29,95 +29,95 @@ function Recipes () {
     } catch (error) {
       console.log(error);
     }
-    if (Loaded == 1){
+    if (Loaded == 1) {
       console.log(Recipes);
     }
   }
-  
+
   useEffect(() => {
-   if(isInitialMount.current){
-    isInitialMount.current = false;
-    HandleRecipes();
-    setToken(location.state.token);
-   }else{
-    //console.log(Token);
-    //console.log(Recipes);
-   }
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      HandleRecipes();
+      setToken(location.state.token);
+    } else {
+      //console.log(Token);
+      //console.log(Recipes);
+    }
   });
 
-  async function HandleLike () {
+  async function HandleLike() {
     if (Pos < Recipes.length - 1) {
       try {
         const LikeHead = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'authorization': 'Bearer ' + Token },
-            body: JSON.stringify({recipe: Recipes[Pos]._id})
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'authorization': 'Bearer ' + Token },
+          body: JSON.stringify({ recipe: Recipes[Pos]._id })
         };
         const response = await fetch('https://concierge.cooperstandard.org:8443/api/user/like', LikeHead)
         const Likeres = await response.json();
         if (Likeres.status >= 400) {
-            throw new Error("Error Liking");
+          throw new Error("Error Liking");
         } else {
-            console.log(Likeres);
+          console.log(Likeres);
         }
-    } catch (error) {
+      } catch (error) {
         console.log(error);
         this.setState({ error: error })
-    }
-      setPos(Pos+1);
+      }
+      setPos(Pos + 1);
     } else {
       setPos(0);
     }
   }
-  async function HandleDislike (event) {
+  async function HandleDislike(event) {
     if (Pos < Recipes.length - 1) {
       try {
         const DislikeHead = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'authorization': 'Bearer ' + Token },
-            body: JSON.stringify({recipe: Recipes[Pos]._id})
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'authorization': 'Bearer ' + Token },
+          body: JSON.stringify({ recipe: Recipes[Pos]._id })
         };
         const response = await fetch('https://concierge.cooperstandard.org:8443/api/user/dislike', DislikeHead)
         const Disres = await response.json();
         if (Disres.status >= 400) {
-            throw new Error("Error Disliking");
+          throw new Error("Error Disliking");
         } else {
-            console.log(Disres);
+          console.log(Disres);
         }
-    } catch (error) {
+      } catch (error) {
         console.log(error);
         this.setState({ error: error })
-    }
-      setPos(Pos+1);
+      }
+      setPos(Pos + 1);
     } else {
       setPos(0);
     }
   }
 
 
-    if (Recipes && (Pos >= 0) && (Loaded == 1)) {
-      return (
+  if (Recipes && (Pos >= 0) && (Loaded == 1)) {
+    return (
 
-        <div className="App">
+      <div className="App">
 
-          <div key={Recipes[Pos]._id} className="background">
-            <h1>{Recipes[Pos].title}</h1>
-            <h3>{Recipes[Pos].description}</h3>
-            <img src={Recipes[Pos].photos[0]} className="RecipeImage"></img>
-            <button className="DislikeButton" onClick={HandleDislike}></button>
-            <button className="LikeButton" onClick={HandleLike}></button>
-            <ul>{Recipes[Pos].ingredients.map(ingredient => {
-              return (
-                <li key={ingredient}>{ingredient}</li>
-              )
-            })}</ul>
-          </div>
+        <div key={Recipes[Pos]._id} className="background">
+          <h1>{Recipes[Pos].title}</h1>
+          <h3>{Recipes[Pos].description}</h3>
+          <img src={Recipes[Pos].photos[0]} className="RecipeImage"></img>
+          <button className="DislikeButton" onClick={HandleDislike}></button>
+          <button className="LikeButton" onClick={HandleLike}></button>
+          <ul>{Recipes[Pos].ingredients.map(ingredient => {
+            return (
+              <li key={ingredient}>{ingredient}</li>
+            )
+          })}</ul>
         </div>
-      )
-    } else {
-      return (<h1>Loading...</h1>)
-    }
-  
+      </div>
+    )
+  } else {
+    return (<h1>Loading...</h1>)
+  }
+
 }
 
 export default Recipes;
