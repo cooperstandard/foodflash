@@ -4,7 +4,10 @@ import './App.css';
 import './Recipes.css'
 import './CreateAccount.js'
 import { Link, redirect, Navigate } from "react-router-dom"
-import { userContext } from './userContext';
+
+import Recipes from './Recipes';
+
+
 class LoginForm extends React.Component {
     constructor(props) {
         super(props);
@@ -30,6 +33,7 @@ class LoginForm extends React.Component {
                 throw new Error("Error with login");
             } else {
                 this.setState({ token: data.token })
+                //console.log(this.state.token)
                 this.HandleAuth(data)
             }
         } catch (error) {
@@ -64,7 +68,8 @@ class LoginForm extends React.Component {
             <div className="background">
                 <h1 className="titleText">Login</h1>
                 {this.state.user && (
-                     <Navigate to="/recipes" replace={true} />
+                    
+                    <Navigate to="/recipes" replace={true} state = {{ token : this.state.token}} />
                 )}
                 {this.state.error && (
                     <p className="errorText">Your username or password is incorrect!</p>
