@@ -98,8 +98,8 @@ function Recipes() {
     navigate("/recipe-info", { state: { _id: Recipes[Pos]._id, token: Token } });
   }
 
-  function HandleBack() {
-    navigate("/login")
+  function HandleAccount() {
+    navigate("/account")
 }
 
   if (Recipes && (Pos >= 0) && (Loaded == 1)) {
@@ -111,7 +111,7 @@ function Recipes() {
           <h1 className="RecipeTitle">{Recipes[Pos].title}</h1>
           <h2 className="PrepTime">Prep Time: {Recipes[Pos].prepTime}</h2>
           <img src={Recipes[Pos].photos[0]} className="RecipeImage" onClick={HandleRecipeInfo}></img>
-          <button onClick={HandleBack} className="BackButton">
+          <button onClick={HandleAccount} className="AccountButton">
                     <h1 className="BackButtonText">Account</h1>
                 </button>
           <button className="DislikeButton" onClick={HandleDislike}></button>
