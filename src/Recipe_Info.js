@@ -1,10 +1,11 @@
 
 import './Recipes.css';
 import './App.css'
+import './index.css'
 import Axios from 'axios';
 import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { useParams, useLocation, useNavigate, useNavigation } from 'react-router-dom';
-
+import ReactLoading from 'react-loading'
 function RecipeInfo() {
     let location = useLocation();
     const [Recipe, setRecipe] = useState();
@@ -29,7 +30,7 @@ function RecipeInfo() {
         }
     });
     function HandleBack() {
-        navigate("/recipes", { state: { token: location.state.token } })
+        navigate("/recipes", { state: { token: location.state.token,user:location.state.user } })
     }
 
     if (Recipe) {
@@ -40,7 +41,9 @@ function RecipeInfo() {
                     <h1 className="BackButtonText">Back</h1>
                 </button>
                 <h1 className="RecipeTitle">{Recipe.title}</h1>
+                <h2 className="PrepTime">Prep Time: {Recipe.prepTime}</h2>
                 <img src={Recipe.photos[0]} className="RecipeImage"></img>
+                
                 <ul className="Description">{Recipe.ingredients.map(ingredient => {
                     return (
                         <li key={ingredient}>{ingredient}</li>
@@ -52,7 +55,10 @@ function RecipeInfo() {
             </div>
         );
     } else {
-        return (<div className="background">Loading...</div>);
+        return (<div className = "background">
+        <ReactLoading className = "Loading" type = "bubbles" color = "#4A76E9" height={100} width={100}/>
+      </div>
+        );
     }
 }
 

@@ -1,9 +1,11 @@
 //import logo from './logo.svg';
 import './Recipes.css';
 import './App.css'
+import './index.css'
 import Axios from 'axios';
 import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { useParams, useLocation, useNavigate } from 'react-router-dom';
+import ReactLoading from "react-loading";
 
 
 function Recipes() {
@@ -95,14 +97,15 @@ function Recipes() {
     }
   }
   async function HandleRecipeInfo() {
-    navigate("/recipe-info", { state: { _id: Recipes[Pos]._id, token: Token } });
+    navigate("/recipe-info", { state: { _id: Recipes[Pos]._id, token: Token, user: location.state.user } });
   }
 
   function HandleAccount() {
-    navigate("/account")
-}
+    navigate("/account", { state: { token: Token, user: location.state.user } })
+  }
 
   if (Recipes && (Pos >= 0) && (Loaded == 1)) {
+  
     return (
 
       <div className="App">
@@ -112,15 +115,18 @@ function Recipes() {
           <h2 className="PrepTime">Prep Time: {Recipes[Pos].prepTime}</h2>
           <img src={Recipes[Pos].photos[0]} className="RecipeImage" onClick={HandleRecipeInfo}></img>
           <button onClick={HandleAccount} className="AccountButton">
-                    <h1 className="BackButtonText">Account</h1>
-                </button>
+            <h1 className="AccountButtonText">Account</h1>
+          </button>
           <button className="DislikeButton" onClick={HandleDislike}></button>
           <button className="LikeButton" onClick={HandleLike}></button>
         </div>
       </div>
     )
   } else {
-    return (<div className="background">Loading...</div>)
+    return (<div className = "background">
+      <ReactLoading className = "Loading" type = "spin" color = "#4A76E9" height={100} width={100}/>
+    </div>
+      );
   }
 
 }

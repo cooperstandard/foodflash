@@ -12,8 +12,7 @@
     position: absolute;
     left: 19.88%;
     right: 20.18%;
-    top: 25.81%;
-    bottom: 25.81%;
+    top: -15%;
 
     font-family: 'Comic Neue';
     font-style: normal;
@@ -39,9 +38,7 @@
     position: absolute;
     left: 39.14%;
     right: 39.45%;
-    top: 31.18%;
-    bottom: 31.18%;
-
+    top: 5%;
     font-family: 'Comic Neue';
     font-style: normal;
     font-weight: 400;
@@ -60,7 +57,7 @@
     left: 121px;
     top: 90px;
 
-    font-family: 'Comic Neue';
+    font-family: "Comic Neue";
     font-style: normal;
     font-weight: 400;
     font-size: 60px;
@@ -83,6 +80,7 @@
     height: 47px;
     left: 32px;
     top: 362px;
+    -webkit-text-security: disc;
 }
 
 .nameBox {
@@ -110,4 +108,19 @@
 
     color: #FF0006;
 
+}
+.CreateAccUsernameBox {
+    position: absolute;
+    width: 327px;
+    height: 47px;
+    left: 32px;
+    top: 362px;
+}
+.CreateAccPasswordBox {
+    position: absolute;
+    width: 327px;
+    height: 47px;
+    left: 32px;
+    top: 445px;
+    -webkit-text-security: disc;
 }

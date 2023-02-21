@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './LoginPage.css';
+import './index.css'
 import './App.css';
 import './Recipes.css'
 import './CreateAccount.js'
+import "./fonts/ComicNeue-Regular.ttf"
 import { Link, redirect, Navigate } from "react-router-dom"
 
 import Recipes from './Recipes';
@@ -33,7 +35,7 @@ class LoginForm extends React.Component {
                 throw new Error("Error with login");
             } else {
                 this.setState({ token: data.token })
-                //console.log(this.state.token)
+                this.setState({user : data.email})
                 this.HandleAuth(data)
             }
         } catch (error) {
@@ -69,14 +71,14 @@ class LoginForm extends React.Component {
                 <h1 className="titleText">Login</h1>
                 {this.state.user && (
 
-                    <Navigate to="/recipes" replace={true} state={{ token: this.state.token }} />
+                    <Navigate to="/recipes" replace={true} state={{ token: this.state.token , user : this.state.user}} />
                 )}
                 {this.state.error && (
                     <p className="errorText">Your username or password is incorrect!</p>
                 )}
                 <form onSubmit={this.HandleLogin}>
                     <input type="text" id="email" name="email" className="emailBox" placeholder="Email"></input>
-                    <input type="text" id="password" name="password" className="passwordBox" placeholder="Password"></input>
+                    <input type="text" id="password" name="password" className="passwordBox" placeholder="Password" ></input>
 
                     <button type="submit" className="loginButton">
                         <h2 className="loginBText">Login</h2>

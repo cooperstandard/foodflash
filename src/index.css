@@ -5,6 +5,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+}
+@font-face {
+  font-family: 'Comic Neue';
+  src: local("ComicNeue-Regular"),
+   url("./fonts/ComicNeue-Regular.ttf") format("truetype");
 }
 
 code {

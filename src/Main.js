@@ -5,6 +5,7 @@ import Recipes from './Recipes';
 import CreateAccount from './CreateAccount';
 import RecipeInfo from './Recipe_Info.js';
 import Account from './Account';
+import './index.css'
 import { Routes, Route, useLocation } from 'react-router-dom';
 
 

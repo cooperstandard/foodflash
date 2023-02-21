@@ -1,0 +1,42 @@
+.EmailBox {
+    position: absolute;
+    width: 327px;
+    height: 47px;
+    left: 32px;
+    top: 279px;
+
+    background: #D9D9D9;
+}
+
+.AccountTitle {
+    position: absolute;
+    width: 365px;
+    height: 71px;
+    left: 32px;
+    top: 93px;
+
+    font-family: 'Comic Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 69px;
+
+    color: #000000;
+}
+
+.EmailText {
+
+    position: absolute;
+    width: 291px;
+    height: 37px;
+    left: 15px;
+    top: -12px;
+
+    font-family: 'Comic Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 35px;
+
+    color: #000000;
+}
