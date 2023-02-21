@@ -10,7 +10,7 @@ import ReactLoading from "react-loading";
 function SavedRecipes() {
     let location = useLocation();
     let navigate = useNavigate();
-    const [Saved, setSaved] = useState();
+    const [Saved, setSaved] = useState([]);
     const [Token, setToken] = useState();
     const [Pos, setPos] = useState();
     const isInitialMount = useRef(true);
@@ -18,12 +18,12 @@ function SavedRecipes() {
     async function HandleSaved() {
         const getRec = {
             method: 'GET',
-            headers: { 'Content-Type': 'application/json', 'authorization': 'Bearer ' + Token },
+            headers: { 'Content-Type': 'application/json', 'authorization': 'Bearer ' + location.state.token },
         };
-        const response = await fetch('https://concierge.cooperstandard.org:8443/api/authenticate', getRec);
+        const response = await fetch('https://concierge.cooperstandard.org:8443/api/user/liked', getRec);
         const Liked = await response.json();
         setSaved(Liked);
-        console.log(Saved);
+        //console.log(Saved);
     }
     function HandleBack() {
         navigate("/recipes", { state: { token: location.state.token, user: location.state.user, Pos: location.state.Pos } })
@@ -39,14 +39,22 @@ function SavedRecipes() {
             //console.log(Saved);
         }
     });
-    return (
-        <div className='background'>
-            <h1 className = 'SavedTitle'>Saved Recipes</h1>
-            <button onClick={HandleBack} className="BackButton">
+    if (Saved) {
+        return (
+
+            <div className='background'>
+                <h1 className='SavedTitle'>Saved Recipes</h1>
+                <button onClick={HandleBack} className="BackButton">
                     <h1 className="BackButtonText">Back</h1>
                 </button>
-        </div>
-    );
+            </div>
+        );
+    } else {
+        return (<div className = "background">
+      <ReactLoading className = "Loading" type = "spin" color = "#4A76E9" height={100} width={100}/>
+    </div>
+      );
+    }
 
 }
 
