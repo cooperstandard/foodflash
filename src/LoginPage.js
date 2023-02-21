@@ -6,7 +6,6 @@ import './styles/Recipes.css'
 import './CreateAccount.js'
 import "./fonts/ComicNeue-Regular.ttf"
 import { Link, redirect, Navigate } from "react-router-dom"
-
 import Recipes from './Recipes';
 
 

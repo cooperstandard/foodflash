@@ -104,8 +104,6 @@
     font-size: 15px;
     line-height: 17px;
     /* identical to box height */
-
-
     color: #FF0006;
 
 }
@@ -123,4 +121,19 @@
     left: 32px;
     top: 445px;
     -webkit-text-security: disc;
+}
+.EmailErrorText {
+    position: absolute;
+    width: 266px;
+    height: 18px;
+    left: 70px;
+    top: 510px;
+
+    font-family: 'Comic Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 17px;
+    color: #FF0006;
+
 }
