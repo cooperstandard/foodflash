@@ -10,7 +10,7 @@ body {
 @font-face {
   font-family: 'Comic Neue';
   src: local("ComicNeue-Regular"),
-   url("./fonts/ComicNeue-Regular.ttf") format("truetype");
+   url("../fonts/ComicNeue-Regular.ttf") format("truetype");
 }
 
 code {

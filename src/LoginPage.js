@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import './LoginPage.css';
-import './index.css'
-import './App.css';
-import './Recipes.css'
+import './styles/LoginPage.css';
+import './styles/index.css'
+import './styles/App.css';
+import './styles/Recipes.css'
 import './CreateAccount.js'
 import "./fonts/ComicNeue-Regular.ttf"
 import { Link, redirect, Navigate } from "react-router-dom"

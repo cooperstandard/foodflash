@@ -1,7 +1,7 @@
-import './Recipes.css';
-import './App.css'
-import './Account.css'
-import './LoginPage.css'
+import './styles/Recipes.css';
+import './styles/App.css';
+import './styles/Account.css';
+import './styles/LoginPage.css';
 import Axios from 'axios';
 import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { useParams, useLocation, useNavigate, useNavigation } from 'react-router-dom';

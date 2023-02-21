@@ -1,8 +1,8 @@
 import Axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import './LoginPage.css';
-import './App.css';
-import './Recipes.css'
+import './styles/LoginPage.css';
+import './styles/App.css';
+import './styles/Recipes.css'
 import {Link} from "react-router-dom"
 
 class CreateAccount extends React.Component {
