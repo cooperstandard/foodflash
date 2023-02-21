@@ -30,7 +30,7 @@ function RecipeInfo() {
         }
     });
     function HandleBack() {
-        navigate("/recipes", { state: { token: location.state.token,user:location.state.user } })
+        navigate("/recipes", { state: { token: location.state.token,user:location.state.user , Pos:location.state.Pos} })
     }
 
     if (Recipe) {
@@ -42,7 +42,7 @@ function RecipeInfo() {
                 </button>
                 <h1 className="RecipeTitle">{Recipe.title}</h1>
                 <h2 className="PrepTime">Prep Time: {Recipe.prepTime}</h2>
-                <img src={Recipe.photos[0]} className="RecipeImage"></img>
+                <img src={Recipe.photos[0]} className="RecipeImage" onClick={HandleBack}></img>
                 
                 <ul className="Description">{Recipe.ingredients.map(ingredient => {
                     return (
@@ -56,7 +56,7 @@ function RecipeInfo() {
         );
     } else {
         return (<div className = "background">
-        <ReactLoading className = "Loading" type = "bubbles" color = "#4A76E9" height={100} width={100}/>
+        <ReactLoading className = "Loading" type = "spin" color = "#4A76E9" height={100} width={100}/>
       </div>
         );
     }

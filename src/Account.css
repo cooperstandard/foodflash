@@ -40,3 +40,18 @@
 
     color: #000000;
 }
+.LogoutText{
+    position: absolute;
+    left: 39.14%;
+    right: 39.45%;
+    top: 5%;
+    font-family: 'Comic Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 35px;
+
+    text-align: center;
+
+    color: #FFFFFF;
+}

@@ -71,7 +71,7 @@ class LoginForm extends React.Component {
                 <h1 className="titleText">Login</h1>
                 {this.state.user && (
 
-                    <Navigate to="/recipes" replace={true} state={{ token: this.state.token , user : this.state.user}} />
+                    <Navigate to="/recipes" replace={true} state={{ token: this.state.token , user : this.state.user, Pos:1}} />
                 )}
                 {this.state.error && (
                     <p className="errorText">Your username or password is incorrect!</p>

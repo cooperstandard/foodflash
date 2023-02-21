@@ -10,7 +10,7 @@ import ReactLoading from "react-loading";
 
 function Recipes() {
   const [Recipes, setRecipes] = useState([]);
-  var [Pos, setPos] = useState(0);
+  var [Pos, setPos] = useState();
   const [Loaded, setLoaded] = useState("0")
   const [Token, setToken] = useState();
   const [Liked, setLiked] = useState([]);
@@ -42,6 +42,7 @@ function Recipes() {
       isInitialMount.current = false;
       HandleRecipes();
       setToken(location.state.token);
+      setPos(location.state.Pos);
     } else {
       //console.log(Token);
       //console.log(Recipes);
@@ -97,11 +98,11 @@ function Recipes() {
     }
   }
   async function HandleRecipeInfo() {
-    navigate("/recipe-info", { state: { _id: Recipes[Pos]._id, token: Token, user: location.state.user } });
+    navigate("/recipe-info", { state: { _id: Recipes[Pos]._id, token: Token, user: location.state.user ,Pos:Pos} });
   }
 
   function HandleAccount() {
-    navigate("/account", { state: { token: Token, user: location.state.user } })
+    navigate("/account", { state: { token: Token, user: location.state.user , Pos:Pos} })
   }
 
   if (Recipes && (Pos >= 0) && (Loaded == 1)) {

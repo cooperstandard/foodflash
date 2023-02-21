@@ -85,6 +85,23 @@
 
   color: #000000;
 }
+.Allergens {
+  position: absolute;
+  width: 138px;
+  height: 16px;
+  left: 232px;
+  top: 145px;
+
+  font-family: 'Comic Neue';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  /* identical to box height */
+
+
+  color: #000000;
+}
 
 .InfoBackground {
   position: relative;
