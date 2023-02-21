@@ -3,7 +3,7 @@ import './Recipes.css';
 import './App.css'
 import Axios from 'axios';
 import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useLocation, useNavigate } from 'react-router-dom';
 
 
 function Recipes() {
@@ -14,6 +14,7 @@ function Recipes() {
   const [Liked, setLiked] = useState([]);
 
   let location = useLocation();
+  let navigate = useNavigate();
   const isInitialMount = useRef(true);
 
   async function HandleRecipes() {
@@ -93,7 +94,13 @@ function Recipes() {
       setPos(0);
     }
   }
+  async function HandleRecipeInfo() {
+    navigate("/recipe-info", { state: { _id: Recipes[Pos]._id, token: Token } });
+  }
 
+  function HandleBack() {
+    navigate("/login")
+}
 
   if (Recipes && (Pos >= 0) && (Loaded == 1)) {
     return (
@@ -101,21 +108,19 @@ function Recipes() {
       <div className="App">
 
         <div key={Recipes[Pos]._id} className="background">
-          <h1>{Recipes[Pos].title}</h1>
-          <h3>{Recipes[Pos].description}</h3>
-          <img src={Recipes[Pos].photos[0]} className="RecipeImage"></img>
+          <h1 className="RecipeTitle">{Recipes[Pos].title}</h1>
+          <h2 className="PrepTime">Prep Time: {Recipes[Pos].prepTime}</h2>
+          <img src={Recipes[Pos].photos[0]} className="RecipeImage" onClick={HandleRecipeInfo}></img>
+          <button onClick={HandleBack} className="BackButton">
+                    <h1 className="BackButtonText">Account</h1>
+                </button>
           <button className="DislikeButton" onClick={HandleDislike}></button>
           <button className="LikeButton" onClick={HandleLike}></button>
-          <ul>{Recipes[Pos].ingredients.map(ingredient => {
-            return (
-              <li key={ingredient}>{ingredient}</li>
-            )
-          })}</ul>
         </div>
       </div>
     )
   } else {
-    return (<h1>Loading...</h1>)
+    return (<div className="background">Loading...</div>)
   }
 
 }

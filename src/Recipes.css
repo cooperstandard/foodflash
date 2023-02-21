@@ -1,68 +1,156 @@
-
 .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
   }
-  
-  .App-link {
-    color: #61dafb;
+
+  to {
+    transform: rotate(360deg);
   }
-  
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  .background{
+}
+
+.background {
   position: relative;
   width: 390px;
   height: 844px;
   background: #0000;
-  }
+}
+
+
+.RecipeImage {
+  position: absolute;
+  width: 369px;
+  height: 456px;
+  left: 11px;
+  top: 176px;
+}
+
+.LikeButton {
+  position: absolute;
+  width: 95px;
+  height: 95px;
+  left: 285px;
+  top: 680px;
+  background: #00B937;
+  border-radius: 50%;
+}
+
+.DislikeButton {
+  position: absolute;
+  width: 95px;
+  height: 95px;
+  left: 10px;
+  top: 680px;
+  background: #FF0006;
+  border-radius: 50%;
+}
+
+.SavedButtonShape {
+  position: absolute;
+  width: 60px;
+  height: 25px;
+  left: 0px;
+  top: 0px;
+  background: #4A76E9;
+}
+
+.PrepTime {
+  position: absolute;
+  width: 138px;
+  height: 16px;
+  left: 232px;
+  top: 147px;
+
+  font-family: 'Comic Neue';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  /* identical to box height */
+
+
+  color: #000000;
+}
+
+.InfoBackground{
+  position: relative;
+width: 390px;
+height: 1545px;
+
+background: #FFFFFF;
+}
+
+.BackButton{
+  position: absolute;
+  width: 60px;
+  height: 25px;
+  left: 20px;
+  top: 17px;
+  background: #4A76E9;
+border-radius: 20%;
+}
+.BackButtonText{
+  position: absolute;
+left: 11.67%;
+right: 16.67%;
+top: 4%;
+bottom: 4%;
+
+font-family: 'Comic Neue';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 23px;
+/* identical to box height */
+
+
+color: #FFFFFF;
+}
+.Description{
+  position: absolute;
+width: 367px;
+height: 213px;
+left: 13px;
+top: 664px;
+
+font-family: 'Comic Neue';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 23px;
+
+color: #000000;
+}
+
+.RecipeTitle{
+  position: absolute;
+width: 362px;
+height: 125px;
+left: 18px;
+top: 40px;
+
+font-family: 'Comic Neue';
+font-style: normal;
+font-weight: 400;
+font-size: 60px;
+line-height: 69px;
+
+color: #000000;
+}
+.AccountButton{
   
-  
-  .RecipeImage{
-    position: absolute;
-    width: 369px;
-    height: 456px;
-    left: 11px;
-    top: 176px;
-  }
-  
-  .LikeButton{
-    position: absolute;
-    width: 95px;
-    height: 95px;
-    left: 285px;
-    top: 680px;
-    background: #00B937;
-    border-radius: 50%;
-  }
-  
-  .DislikeButton{
-    position: absolute;
-    width: 95px;
-    height: 95px;
-    left: 10px;
-    top: 680px;
-    background: #FF0006;
-    border-radius: 50%;
-  }
-  
-  .SavedButtonShape{
-    position: absolute;
-    width: 60px;
-    height: 25px;
-    left: 0px;
-    top: 0px;
-    background: #4A76E9;
-  }
+}
