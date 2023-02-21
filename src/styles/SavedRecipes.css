@@ -1,0 +1,17 @@
+.SavedTitle{
+
+position: absolute;
+width: 365px;
+height: 71px;
+left: 16px;
+top: 10px;
+
+font-family: 'Comic Neue';
+font-style: normal;
+font-weight: 400;
+font-size: 60px;
+line-height: 69px;
+
+color: #000000;
+
+}

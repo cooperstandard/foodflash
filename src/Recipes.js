@@ -104,6 +104,9 @@ function Recipes() {
   function HandleAccount() {
     navigate("/account", { state: { token: Token, user: location.state.user , Pos:Pos} })
   }
+  function HandleSaved(){
+    navigate("/saved",{state:{token: Token, Pos:Pos}})
+  }
 
   if (Recipes && (Pos >= 0) && (Loaded == 1)) {
   
@@ -117,6 +120,9 @@ function Recipes() {
           <img src={Recipes[Pos].photos[0]} className="RecipeImage" onClick={HandleRecipeInfo}></img>
           <button onClick={HandleAccount} className="AccountButton">
             <h1 className="AccountButtonText">Account</h1>
+          </button>
+          <button onClick={HandleSaved} className="SavedButton">
+            <h1 className="SavedButtonText">Saved</h1>
           </button>
           <button className="DislikeButton" onClick={HandleDislike}></button>
           <button className="LikeButton" onClick={HandleLike}></button>

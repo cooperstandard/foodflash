@@ -85,6 +85,7 @@
 
   color: #000000;
 }
+
 .Allergens {
   position: absolute;
   width: 138px;
@@ -199,9 +200,34 @@
   color: #FFFFFF;
 
 }
-.Loading{
-  position:absolute;
+
+.Loading {
+  position: absolute;
   left: 145px;
   top: 372px;
 }
 
+.SavedButton {
+  position: absolute;
+  width: 60px;
+  height: 25px;
+  left: 310px;
+  top: 17px;
+  border-radius: 20%;
+  background: #4A76E9;
+}
+
+.SavedButtonText {
+  position: absolute;
+  width: 50px;
+  height: 23px;
+  left: 2px;
+  top: -15px;
+
+  font-family: 'Comic Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  color: #FFFFFF;
+}
