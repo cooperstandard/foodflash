@@ -7,7 +7,7 @@ import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import ReactLoading from "react-loading";
 
-function SavedRecipes() {
+function ShoppingList() {
     let location = useLocation();
     let navigate = useNavigate();
     const [Saved, setSaved] = useState();
@@ -20,15 +20,16 @@ function SavedRecipes() {
             method: 'GET',
             headers: { 'Content-Type': 'application/json', 'authorization': 'Bearer ' + location.state.token },
         };
-        const response = await fetch('https://concierge.cooperstandard.org/api/user/liked', getRec);
+        const response = await fetch('https://concierge.cooperstandard.org/api/recipe/all', getRec);
         const Liked = await response.json();
         setSaved(Liked);
     }
     function HandleBack() {
         navigate("/recipes", { state: { token: location.state.token, user: location.state.user, Pos: location.state.Pos } })
     }
-    function HandleShoppingList(){
-        navigate("/shoppinglist",{state:{token: Token, Pos:Pos}})
+
+    function HandleSavedRecipe(){
+        navigate("/saved",{state:{token: Token, Pos:Pos}})
     }
 
     useEffect(() => {
@@ -51,23 +52,23 @@ function SavedRecipes() {
                         <button onClick={HandleBack} className="BackButton">
                             <h1 className="BackButtonText">Back</h1>
                         </button>
-                        <h1 className='SavedTitle'>Saved Recipes</h1>
+                        <h1 className='SavedTitle'>Shopping List</h1>
 
-                        <ul className='saved-recipe-container'>{Saved.recipes.map(recipe => {
+                        <ul className='shopping-list-container'>{Saved.map(recipe => {
                             return (
-                                <div className='saved-recipe-item' key={recipe}>
-                                    <span className='saved-recipes-test'><span>{recipe}</span>
+                                <div className='shopping-list-item' key={recipe._id}>
+                                    <span className='saved-recipes-test'>
+                                    <p>{recipe.ingredients}</p>
                                     <button className ='delete-recipe-button'></button>
                                     <button className ='info-recipe-button'></button>
                                     </span>
                                 </div>
-                                
                             )
                         })}
                         </ul>
                         
                         <button className="shopping-list-button">
-                            <span onClick ={HandleShoppingList} className="shopping-list-text"><span>Shopping List</span></span>
+                            <span onClick= {HandleSavedRecipe}className="shopping-list-text"><span>Saved Recipes</span></span>
                         </button>
                         
 
@@ -86,4 +87,4 @@ function SavedRecipes() {
 
 }
 
-export default SavedRecipes;
+export default ShoppingList

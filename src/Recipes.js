@@ -21,7 +21,7 @@ function Recipes() {
 
   async function HandleRecipes() {
     try {
-      const response = await fetch("https://concierge.cooperstandard.org:8443/api/recipe/all");
+      const response = await fetch("https://concierge.cooperstandard.org/api/recipe/all");
       const data = await response.json();
       if (typeof (data) !== 'undefined') {
         setRecipes(data);
@@ -57,12 +57,13 @@ function Recipes() {
           headers: { 'Content-Type': 'application/json', 'authorization': 'Bearer ' + Token },
           body: JSON.stringify({ recipe: Recipes[Pos]._id })
         };
-        const response = await fetch('https://concierge.cooperstandard.org:8443/api/user/like', LikeHead)
+        const response = await fetch('https://concierge.cooperstandard.org/api/user/like', LikeHead)
         const Likeres = await response.json();
         if (Likeres.status >= 400) {
           throw new Error("Error Liking");
         } else {
           console.log(Likeres);
+          console.log('hi');
         }
       } catch (error) {
         console.log(error);
@@ -79,9 +80,9 @@ function Recipes() {
         const DislikeHead = {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'authorization': 'Bearer ' + Token },
-          body: JSON.stringify({ recipe: Recipes[Pos]._id })
+          body: JSON.stringify({ recipe: Recipes[Pos]._id, title:Recipes[Pos].title })
         };
-        const response = await fetch('https://concierge.cooperstandard.org:8443/api/user/dislike', DislikeHead)
+        const response = await fetch('https://concierge.cooperstandard.org/api/user/dislike', DislikeHead)
         const Disres = await response.json();
         if (Disres.status >= 400) {
           throw new Error("Error Disliking");
@@ -128,6 +129,7 @@ function Recipes() {
           <button className="LikeButton" onClick={HandleLike}></button>
         </div>
       </div>
+
     )
   } else {
     return (<div className = "background">
