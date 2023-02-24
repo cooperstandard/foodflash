@@ -21,7 +21,7 @@ class CreateAccount extends React.Component {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name: event.target.name.value, password: event.target.password.value, email: event.target.email.value })
         };
-        const response = await fetch('https://concierge.cooperstandard.org:8443/api/user/signup', register)
+        const response = await fetch('https://concierge.cooperstandard.org/api/user/signup', register)
         const signupRes = await response.json();
         if (signupRes.success == true) {
             //console.log(signupRes)

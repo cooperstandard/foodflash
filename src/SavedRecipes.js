@@ -20,7 +20,7 @@ function SavedRecipes() {
             method: 'GET',
             headers: { 'Content-Type': 'application/json', 'authorization': 'Bearer ' + location.state.token },
         };
-        const response = await fetch('https://concierge.cooperstandard.org:8443/api/user/liked', getRec);
+        const response = await fetch('https://concierge.cooperstandard.org/api/user/liked', getRec);
         const Liked = await response.json();
         setSaved(Liked);
         //console.log(Saved);

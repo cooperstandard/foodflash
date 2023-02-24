@@ -28,7 +28,7 @@ class LoginForm extends React.Component {
             body: JSON.stringify({ email: event.target.email.value, password: event.target.password.value })
         };
         try {
-            const response = await fetch('https://concierge.cooperstandard.org:8443/api/user/login', login)
+            const response = await fetch('https://concierge.cooperstandard.org/api/user/login', login)
             const data = await response.json();
             if (data.message == "Wrong details please check at once") {
                 throw new Error("Error with login");
@@ -48,7 +48,7 @@ class LoginForm extends React.Component {
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json', 'authorization': 'Bearer ' + auth.token },
             };
-            const response = await fetch('https://concierge.cooperstandard.org:8443/api/authenticate', authHead)
+            const response = await fetch('https://concierge.cooperstandard.org/api/authenticate', authHead)
             const authRes = await response.json();
             console.log(authRes);
             if (authRes.message == "token verification failed") {

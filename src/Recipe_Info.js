@@ -17,7 +17,7 @@ function RecipeInfo() {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
         };
-        const response = await fetch('https://concierge.cooperstandard.org:8443/api/recipe/id/' + location.state._id, getRecipe)
+        const response = await fetch('https://concierge.cooperstandard.org/api/recipe/id/' + location.state._id, getRecipe)
         const recRes = await response.json();
         setRecipe(recRes);
     }
