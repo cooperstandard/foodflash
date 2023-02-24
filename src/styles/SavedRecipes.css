@@ -14,4 +14,112 @@ line-height: 69px;
 
 color: #000000;
 
+
 }
+.saved-recipes-saved-recipes {
+    width: 100%;
+    height: 844px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: transparent;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .saved-recipes-back-button {
+    top: 17px;
+    left: 20px;
+    width: 60px;
+    height: 25px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: transparent;
+  }
+  .shopping-list-button {
+    top: 714px;
+    left: 32px;
+    width: 327px;
+    height: 93px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+  }
+
+  .shopping-list-text{
+    top: 29px;
+    left: 77px;
+    color: rgb(0, 0, 0);
+    height: auto;
+    position: absolute;
+    font-size: 30px;
+    align-self: auto;
+    font-style: Regular;
+    text-align: center;
+    font-family: Comic Neue;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .saved-recipes-test {
+    top: 20px;
+    color: rgba(0, 0, 0, 1);
+    height: auto;
+    position: relative;
+    font-size: 20px;
+    align-self: auto;
+    font-style: Regular;
+    text-align: left;
+    font-family: Comic Neue;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+
+  
+  .saved-recipe-container{
+    padding-top: 120px;
+    display: flex;
+    flex-direction:column-reverse;
+  }
+  .saved-recipe-item {
+    background-color: #eee;
+    border: 1px solid #ccc;
+    width: 320px;
+    height: 65px;
+    margin-bottom: 10px;
+  }
+  .info-recipe-button {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    background: #293DA3;
+    border-radius: 50%;
+  }
+  
+  .delete-recipe-button {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    background: #FF0006;
+    border-radius: 50%;
+  }
+  .shopping-list-item{
+    position: relative;
+    width: 320px;
+  }
+  .shopping-list-container{
+    padding-top: 120px;
+    display: flex;
+    flex-direction:column-reverse;
+
+  }
+  
