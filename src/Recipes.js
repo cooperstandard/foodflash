@@ -63,7 +63,7 @@ function Recipes() {
           throw new Error("Error Liking");
         } else {
           setLiked(Likeres);
-          console.log(Likeres);
+          //console.log(Likeres);
         }
       } catch (error) {
         console.log(error);
@@ -88,7 +88,7 @@ function Recipes() {
           throw new Error("Error Disliking");
         } else {
           setLiked(Disres);
-          console.log(Disres);
+          //console.log(Disres);
         }
       } catch (error) {
         console.log(error);

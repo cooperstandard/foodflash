@@ -23,6 +23,7 @@ function SavedRecipes() {
         const response = await fetch('https://concierge.cooperstandard.org/api/recipe/viewLiked', getRec);
         const Liked = await response.json();
         setSaved(Liked);
+        console.log(Liked);
     }
     function HandleBack() {
         navigate("/recipes", { state: { token: location.state.token, user: location.state.user, Pos: location.state.Pos } })
@@ -30,18 +31,35 @@ function SavedRecipes() {
     function HandleShoppingList() {
         navigate("/shoppinglist", { state: { token: Token, Pos: Pos } })
     }
-
-    function handleDeleteRecipe(recipeId) {
-        const updatedRecipes = Saved.recipes.filter(recipe => recipe.title !== recipeId);
-        setSaved({ ...Saved, recipes: updatedRecipes });
+    async function handleDeleteRecipe(recipeTitle) {
+        const ID = await getID(recipeTitle);
+        //console.log(ID);
+        const DislikeHead = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'authorization': 'Bearer ' + Token },
+            body: JSON.stringify({ recipe: ID, title:recipeTitle })
+          };
+          const res2 = await fetch('https://concierge.cooperstandard.org/api/user/dislike', DislikeHead)
+          const Disres = await res2.json();
+          const updatedRecipes = Saved.recipes.filter(recipe => recipe.title !== recipeTitle);
+          setSaved({ ...Saved, recipes: updatedRecipes });
     }
-
+    async function getID(title){
+        const getRec = {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json', 'authorization': 'Bearer ' + location.state.token },
+        };
+        const response = await fetch('https://concierge.cooperstandard.org/api/recipe/search?term=' + title,getRec);
+        const Liked = await response.json();
+        return Liked[0]._id;
+    }
     useEffect(() => {
         if (isInitialMount.current) {
             isInitialMount.current = false;
             setToken(location.state.token);
             setPos(location.state.Pos);
             HandleSaved();
+
         } else {
             //console.log(Token);
             //console.log(Saved);
