@@ -5,7 +5,7 @@
     left: 32px;
     top: 600px;
     background: #4A76E9;
-    border-radius: 20%;
+    border-radius: 100px;
 }
 
 .createAccText {
@@ -31,7 +31,7 @@
     left: 32px;
     top: 714px;
     background: #4A76E9;
-    border-radius: 20%;
+    border-radius: 100px;
 }
 
 .loginBText {

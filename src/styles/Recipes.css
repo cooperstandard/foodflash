@@ -78,6 +78,7 @@ border-radius: 50%;
   left: 0px;
   top: 0px;
   background: #4A76E9;
+  border-radius: 100px;
 }
 
 .PrepTime {
@@ -131,7 +132,7 @@ border-radius: 50%;
   left: 20px;
   top: 17px;
   background: #4A76E9;
-  border-radius: 20%;
+  border-radius: 100px;
 }
 
 .BackButtonText {
@@ -191,7 +192,7 @@ border-radius: 50%;
   left: 20px;
   top: 17px;
 
-  border-radius: 20%;
+  border-radius: 100px;
   background: #4A76E9;
 }
 
@@ -225,7 +226,7 @@ border-radius: 50%;
   height: 25px;
   left: 310px;
   top: 17px;
-  border-radius: 20%;
+  border-radius: 100px;
   background: #4A76E9;
 }
 

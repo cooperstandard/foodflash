@@ -30,6 +30,7 @@ class LoginForm extends React.Component {
         try {
             const response = await fetch('https://concierge.cooperstandard.org/api/user/login', login)
             const data = await response.json();
+            //console.log(data);
             if (data.message == "Wrong details please check at once") {
                 throw new Error("Error with login");
             } else {
