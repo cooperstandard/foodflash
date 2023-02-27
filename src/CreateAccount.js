@@ -37,22 +37,23 @@ class CreateAccount extends React.Component {
 
 
             <div className='background'>
-                <h1 className="titleText">Create Account</h1>
+                <div className = "Header">
+                <div className="signupTitle">Sign Up</div>
+                <Link to='/login'>
+                    <div className="BackButton"> Back </div>
+                </Link>
+                </div>
                 {(this.state.token) && (
 
                     <Navigate to="/recipes" replace={true} state={{ token: this.state.token, user: this.state.user_id, Pos: 1 }} />
                 )}
-                <Link to='/login'>
-                    <button className="BackButton">
-                        <h1 className="BackButtonText">Back</h1>
-                    </button>
-                </Link>
+               
                 <form onSubmit={this.HandleRegister}>
                     <input type="text" id="email" name="email" className="emailBox" placeholder="Email"></input>
                     <input type="text" id="name" name="name" className="CreateAccUsernameBox" placeholder="Username"></input>
                     <input type="text" id="password" name="password" className="CreateAccPasswordBox" placeholder="Password"></input>
                     <button type="submit" className="createAccButton">
-                        <h2 className="createAccText">Create Account</h2>
+                        <div className="createAccText">Sign Up</div>
                     </button>
                     {(this.state.error) && (
                     <p className="EmailErrorText">This Email is Already in use!</p>

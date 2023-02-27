@@ -10,18 +10,22 @@
 
 .AccountTitle {
     position: absolute;
-    width: 365px;
-    height: 71px;
-    left: 32px;
-    top: 93px;
+  width: 113px;
+  height: 36px;
+  left: calc(50% - 113px/2 + 2px);
+  top: 0px;
+  /* UI - 30 Semi */
 
-    font-family: 'Comic Neue';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 60px;
-    line-height: 69px;
+  font-family: "Comic Neue";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 36px;
+  text-align: center;
 
-    color: #000000;
+  /* Black */
+
+  color: #000000;
 }
 
 .EmailText {

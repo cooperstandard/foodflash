@@ -41,10 +41,10 @@ function RecipeInfo() {
         return (
 
             <div className="InfoBackground">
-                <button onClick={HandleBack} className="BackButton">
-                    <h1 className="BackButtonText">Back</h1>
-                </button>
-                <h1 className="RecipeTitle">{Recipe.title}</h1>
+                <div className = "Header">
+                <div className = "RecipeTitle">{Recipe.title}</div>
+                <div className = "BackButton" onClick={HandleBack}>Back</div>
+                </div>
                 <h2 className="PrepTime">Prep Time: {Recipe.prepTime}</h2>
                 <img src={Recipe.photos[0]} className="RecipeImage" onClick={HandleBack}></img>
                 

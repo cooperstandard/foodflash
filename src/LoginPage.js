@@ -68,25 +68,27 @@ class LoginForm extends React.Component {
     render() {
         return (
             <div className="background">
-                <h1 className="titleText">Login</h1>
+                <div className="Header">
+                <div className="loginTitle">Log In</div>
+                </div>
                 {this.state.user && (
 
                     <Navigate to="/recipes" replace={true} state={{ token: this.state.token , user : this.state.user, Pos:1}} />
                 )}
                 {this.state.error && (
-                    <p className="errorText">Your username or password is incorrect!</p>
+                    <div className="errorText">Your username or password is incorrect!</div>
                 )}
                 <form onSubmit={this.HandleLogin}>
                     <input type="text" id="email" name="email" className="emailBox" placeholder="Email"></input>
                     <input type="text" id="password" name="password" className="passwordBox" placeholder="Password" ></input>
 
                     <button type="submit" className="loginButton">
-                        <h2 className="loginBText">Login</h2>
+                        <div className="loginBText">Log In</div>
                     </button>
                 </form>
                 <Link to='/register'>
                     <button className="createAccButton">
-                        <h2 className="createAccText">Create Account</h2>
+                        <div className="createAccText">Sign Up</div>
                     </button>
                 </Link>
 

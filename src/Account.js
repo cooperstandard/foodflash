@@ -19,15 +19,15 @@ function Account() {
     if (location.state.token) {
         return (
             <div className='background'>
-                <h1 className="AccountTitle">Account</h1>
-                <button onClick={HandleBack} className="BackButton">
-                    <h1 className="BackButtonText">Back</h1>
-                </button>
+                <div className = "Header">
+                <div className="AccountTitle">Account</div>
+                <div className="BackButton" onClick={HandleBack}>Back</div>
+                </div>
                 <div className="EmailBox">
                     <h1 className="EmailText">{location.state.user}</h1>
                 </div>
                 <button className="loginButton" onClick={HandleLogout}>
-                    <h1 className="LogoutText">Logout</h1>
+                    <div className="loginBText">Logout</div>
                 </button>
             </div>
 

@@ -37,26 +37,26 @@ function SavedRecipes() {
         const DislikeHead = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'authorization': 'Bearer ' + Token },
-            body: JSON.stringify({ recipe: ID, title:recipeTitle })
-          };
-          const res2 = await fetch('https://concierge.cooperstandard.org/api/user/dislike', DislikeHead)
-          const Disres = await res2.json();
-          const updatedRecipes = Saved.recipes.filter(recipe => recipe.title !== recipeTitle);
-          setSaved({ ...Saved, recipes: updatedRecipes });
+            body: JSON.stringify({ recipe: ID, title: recipeTitle })
+        };
+        const res2 = await fetch('https://concierge.cooperstandard.org/api/user/dislike', DislikeHead)
+        const Disres = await res2.json();
+        const updatedRecipes = Saved.recipes.filter(recipe => recipe.title !== recipeTitle);
+        setSaved({ ...Saved, recipes: updatedRecipes });
     }
-    async function getID(title){
+    async function getID(title) {
         const getRec = {
             method: 'GET',
             headers: { 'Content-Type': 'application/json', 'authorization': 'Bearer ' + location.state.token },
         };
-        const response = await fetch('https://concierge.cooperstandard.org/api/recipe/search?term=' + title,getRec);
+        const response = await fetch('https://concierge.cooperstandard.org/api/recipe/search?term=' + title, getRec);
         const Liked = await response.json();
         return Liked[0]._id;
     }
     async function handleRecipeInfo(title) {
         const ID = await getID(title);
-        navigate("/recipe-info", { state: { _id: ID, token: Token, user: location.state.user ,Pos:location.state.Pos,isSaved:1} });
-      }
+        navigate("/recipe-info", { state: { _id: ID, token: Token, user: location.state.user, Pos: location.state.Pos, isSaved: 1 } });
+    }
     useEffect(() => {
         if (isInitialMount.current) {
             isInitialMount.current = false;
@@ -72,36 +72,37 @@ function SavedRecipes() {
     if (Saved) {
         return (
 
-            
-                    <div className="background">
-                        <button onClick={HandleBack} className="BackButton">
-                            <h1 className="BackButtonText">Back</h1>
-                        </button>
-                        <h1 className='SavedTitle'>Saved Recipes</h1>
 
-                        <ul className='saved-recipe-container'>
-                            {Saved.recipes.map(recipe => {
-                                return (
-                                    <div className='saved-recipe-item' key={recipe.title}>
-                                        <span className='saved-recipes-test'>
-                                            <span>{recipe.title}</span>
-                                            <button className='delete-recipe-button' onClick={() => handleDeleteRecipe(recipe.title)}></button>
-                                            <button className='info-recipe-button' onClick={() => handleRecipeInfo(recipe.title)}></button>
-                                        </span>
-                                    </div>
-                                )
-                            })}
-                        </ul>
+            <div className="background">
+                
+                <div className="Header">
+                    <div className="SavedTitle">Saved Recipes</div>
+                    <div className="BackButton" onClick={HandleBack}>Back</div>
+                </div>
 
-
-
-                        <button className="shopping-list-button">
-                            <span onClick={HandleShoppingList} className="shopping-list-text"><span>Shopping List</span></span>
-                        </button>
+                <ul className='saved-recipe-container'>
+                    {Saved.recipes.map(recipe => {
+                        return (
+                            <div className='saved-recipe-item' key={recipe.title}>
+                                <span className='saved-recipes-test'>
+                                    <span>{recipe.title}</span>
+                                    <button className='delete-recipe-button' onClick={() => handleDeleteRecipe(recipe.title)}></button>
+                                    <button className='info-recipe-button' onClick={() => handleRecipeInfo(recipe.title)}></button>
+                                </span>
+                            </div>
+                        )
+                    })}
+                </ul>
 
 
-                    </div>
-            
+
+                <button className="shopping-list-button">
+                    <span onClick={HandleShoppingList} className="shopping-list-text"><span>Shopping List</span></span>
+                </button>
+
+
+            </div>
+
 
 
         );

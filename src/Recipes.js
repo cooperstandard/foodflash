@@ -80,7 +80,7 @@ function Recipes() {
         const DislikeHead = {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'authorization': 'Bearer ' + Token },
-          body: JSON.stringify({ recipe: Recipes[Pos]._id, title:Recipes[Pos].title })
+          body: JSON.stringify({ recipe: Recipes[Pos]._id, title: Recipes[Pos].title })
         };
         const response = await fetch('https://concierge.cooperstandard.org/api/user/dislike', DislikeHead)
         const Disres = await response.json();
@@ -99,24 +99,24 @@ function Recipes() {
       setPos(0);
     }
   }
-  
-  async function HandleSkip(){
-  if (Pos<Recipes.length -1){
-    setPos(Pos+1);
-  }else{
-    setPos(0);
-  }
+
+  async function HandleSkip() {
+    if (Pos < Recipes.length - 1) {
+      setPos(Pos + 1);
+    } else {
+      setPos(0);
+    }
 
   }
   async function HandleRecipeInfo() {
-    navigate("/recipe-info", { state: { _id: Recipes[Pos]._id, token: Token, user: location.state.user ,Pos:Pos,isSaved:0} });
+    navigate("/recipe-info", { state: { _id: Recipes[Pos]._id, token: Token, user: location.state.user, Pos: Pos, isSaved: 0 } });
   }
 
   function HandleAccount() {
-    navigate("/account", { state: { token: Token, user: location.state.user , Pos:Pos} })
+    navigate("/account", { state: { token: Token, user: location.state.user, Pos: Pos } })
   }
-  function HandleSaved(){
-    navigate("/saved",{state:{token: Token, Pos:Pos}})
+  function HandleSaved() {
+    navigate("/saved", { state: { token: Token, Pos: Pos } })
   }
 
   if (Recipes && (Pos >= 0) && (Loaded == 1)) {
@@ -124,29 +124,27 @@ function Recipes() {
     return (
       <div className="App">
         <div key={Recipes[Pos]._id} className="background">
-          <h1 className="RecipeTitle">{Recipes[Pos].title}</h1>
+          <div className="Header">
+            <div className="RecipeTitle">{Recipes[Pos].title}</div>
+            <div className="BackButton" onClick={HandleAccount}>Account</div>
+            <div className="SavedButton" onClick={HandleSaved}>Saved</div>
+          </div>
           <h2 className="PrepTime">Prep Time: {Recipes[Pos].prepTime}</h2>
           <img src={Recipes[Pos].photos[0]} className="RecipeImage" onClick={HandleRecipeInfo}></img>
-          <button onClick={HandleAccount} className="AccountButton">
-            <h1 className="AccountButtonText">Account</h1>
-          </button>
-          <button onClick={HandleSaved} className="SavedButton">
-            <h1 className="SavedButtonText">Saved</h1>
-          </button>
           <button className="DislikeButton" onClick={HandleDislike}></button>
           <button className="LikeButton" onClick={HandleLike}></button>
           <button className="SkipButton" onClick={HandleSkip}></button>
         </div>
-        </div>
-      );
+      </div>
+    );
 
-        
-    
+
+
   } else {
-    return (<div className = "background">
-      <ReactLoading className = "Loading" type = "spin" color = "#4A76E9" height={100} width={100}/>
+    return (<div className="background">
+      <ReactLoading className="Loading" type="spin" color="#4A76E9" height={100} width={100} />
     </div>
-      );
+    );
   }
 
 }

@@ -60,15 +60,16 @@
   background: #FF0006;
   border-radius: 50%;
 }
-.SkipButton{
-  position: absolute;
-width: 73px;
-height: 73px;
-left: 159px;
-top: 749px;
 
-background: #FFA500;
-border-radius: 50%;
+.SkipButton {
+  position: absolute;
+  width: 73px;
+  height: 73px;
+  left: 159px;
+  top: 749px;
+
+  background: #FFA500;
+  border-radius: 50%;
 }
 
 .SavedButtonShape {
@@ -127,12 +128,16 @@ border-radius: 50%;
 
 .BackButton {
   position: absolute;
-  width: 60px;
-  height: 25px;
-  left: 20px;
-  top: 17px;
-  background: #4A76E9;
-  border-radius: 100px;
+  width: 38px;
+  height: 19px;
+  left: 0px;
+  top: calc(50% - 19px/2 - 0.5px);
+  font-family: 'Comic Neue';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 19px;
+  color: #4A76E9;
 }
 
 .BackButtonText {
@@ -170,17 +175,20 @@ border-radius: 50%;
 
 .RecipeTitle {
   position: absolute;
-  align-items: left;
-  width: 362px;
-  height: 125px;
-  left: 18px;
-  top: -5px;
+  width: 113px;
+  height: 36px;
+  left: calc(50% - 113px/2 + 2px);
+  top: 0px;
+  /* UI - 30 Semi */
 
-  font-family: 'Comic Neue';
+  font-family: "Comic Neue";
   font-style: normal;
-  font-weight: 400;
-  font-size: 60px;
-  line-height: 69px;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 36px;
+  text-align: center;
+
+  /* Black */
 
   color: #000000;
 }
@@ -222,12 +230,16 @@ border-radius: 50%;
 
 .SavedButton {
   position: absolute;
-  width: 60px;
-  height: 25px;
-  left: 310px;
-  top: 17px;
-  border-radius: 100px;
-  background: #4A76E9;
+  width: 39px;
+  height: 19px;
+  right: 0px;
+  top: 8px;
+  font-family: 'Comic Neue';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 19px;
+  color: #4A76E9;
 }
 
 .SavedButtonText {

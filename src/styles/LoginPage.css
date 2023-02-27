@@ -1,57 +1,78 @@
 .createAccButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 32px;
+    gap: 12px;
+
     position: absolute;
-    width: 327px;
-    height: 93px;
-    left: 32px;
-    top: 600px;
+    height: 51px;
+    left: 16px;
+    right: 16px;
+    bottom: 280px;
+
     background: #4A76E9;
     border-radius: 100px;
 }
 
 .createAccText {
-    position: absolute;
-    left: 19.88%;
-    right: 20.18%;
-    top: -15%;
-
+    width: 60px;
+    height: 19px;
     font-family: 'Comic Neue';
     font-style: normal;
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 35px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
 
     color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 
 }
 
 .loginButton {
-    position: absolute;
+    /*position: absolute;
     width: 327px;
     height: 93px;
     left: 32px;
     top: 714px;
+*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 32px;
+    gap: 12px;
+
+    position: absolute;
+    height: 51px;
+    left: 16px;
+    right: 16px;
+    bottom: 350px;
+
     background: #4A76E9;
     border-radius: 100px;
 }
 
 .loginBText {
-    position: absolute;
-    left: 39.14%;
-    right: 39.45%;
-    top: 5%;
+    width: 47px;
+    height: 19px;
     font-family: 'Comic Neue';
     font-style: normal;
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 35px;
-
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
     text-align: center;
 
     color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
 
-.titleText {
-    position: absolute;
+.loginTitle {
+    /*  position: absolute;
     width: 148px;
     height: 71px;
     left: 121px;
@@ -63,43 +84,63 @@
     font-size: 60px;
     line-height: 69px;
 
+    color: #000000;*/
+    position: absolute;
+    width: 88px;
+    height: 36px;
+    left: calc(50% - 88px/2 + 1.5px);
+    top: 0px;
+
+    /* UI - 30 Semi */
+
+    font-family: "Comic Neue";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+
+    /* Black */
+
     color: #000000;
 }
 
 .emailBox {
-    position: absolute;
+    /* position: absolute;
     width: 327px;
     height: 47px;
     left: 32px;
-    top: 279px;
+    top: 279px;*/
+    position: absolute;
+    height: 50px;
+    left: 16px;
+    right: 16px;
+    top: 128px;
+
     border-radius: 10px;
+    border: 1px solid #bababa;
+
 }
 
 .passwordBox {
     position: absolute;
-    width: 327px;
-    height: 47px;
-    left: 32px;
-    top: 362px;
+    height: 50px;
+    left: 16px;
+    right: 16px;
+    top: 194px;
     border-radius: 10px;
+    border: 1px solid #bababa;
     -webkit-text-security: disc;
 }
 
-.nameBox {
-    position: absolute;
-    width: 327px;
-    height: 47px;
-    left: 32px;
-    top: 445px;
-    border-radius: 10px;
-}
+
 
 .errorText {
     position: absolute;
     width: 266px;
     height: 18px;
-    left: 38px;
-    top: 422px;
+    left: 19px;
+    top: 260px;
 
     font-family: 'Comic Neue';
     font-style: normal;
@@ -110,29 +151,35 @@
     color: #FF0006;
 
 }
+
 .CreateAccUsernameBox {
     position: absolute;
-    width: 327px;
-    height: 47px;
-    left: 32px;
-    top: 362px;
+    height: 50px;
+    left: 16px;
+    right: 16px;
+    top: 194px;
     border-radius: 10px;
+    border: 1px solid #bababa;
 }
+
 .CreateAccPasswordBox {
     position: absolute;
-    width: 327px;
-    height: 47px;
-    left: 32px;
-    top: 445px;
+    height: 50px;
+    left: 16px;
+    right: 16px;
+    top: 260px;
+
     border-radius: 10px;
+    border: 1px solid #bababa;
     -webkit-text-security: disc;
 }
+
 .EmailErrorText {
     position: absolute;
     width: 266px;
     height: 18px;
-    left: 70px;
-    top: 510px;
+    left: -25px;
+    top:305px;
 
     font-family: 'Comic Neue';
     font-style: normal;
@@ -140,5 +187,35 @@
     font-size: 15px;
     line-height: 17px;
     color: #FF0006;
+
+}
+
+.Header {
+    position: absolute;
+    height: 36px;
+    left: 16px;
+    right: 16px;
+    top: 60px;
+
+}
+
+.signupTitle {
+    position: absolute;
+    width: 113px;
+    height: 36px;
+    left: calc(50% - 113px/2 + 2px);
+    top: 0px;
+    /* UI - 30 Semi */
+
+    font-family: "Comic Neue";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+
+    /* Black */
+
+    color: #000000;
 
 }
