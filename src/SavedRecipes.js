@@ -23,7 +23,7 @@ function SavedRecipes() {
         const response = await fetch('https://concierge.cooperstandard.org/api/recipe/viewLiked', getRec);
         const Liked = await response.json();
         setSaved(Liked);
-        console.log(Liked);
+        //console.log(Liked);
     }
     function HandleBack() {
         navigate("/recipes", { state: { token: location.state.token, user: location.state.user, Pos: location.state.Pos } })
