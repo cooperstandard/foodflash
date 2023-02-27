@@ -72,9 +72,8 @@ function SavedRecipes() {
     if (Saved) {
         return (
 
-            <div className='background'>
-                <div>
-                    <div className="saved-recipes-saved-recipes">
+            
+                    <div className="background">
                         <button onClick={HandleBack} className="BackButton">
                             <h1 className="BackButtonText">Back</h1>
                         </button>
@@ -102,8 +101,7 @@ function SavedRecipes() {
 
 
                     </div>
-                </div>
-            </div>
+            
 
 
         );
