@@ -58,6 +58,16 @@
   background: #FF0006;
   border-radius: 50%;
 }
+.SkipButton{
+  position: absolute;
+width: 73px;
+height: 73px;
+left: 159px;
+top: 749px;
+
+background: #FFA500;
+border-radius: 50%;
+}
 
 .SavedButtonShape {
   position: absolute;

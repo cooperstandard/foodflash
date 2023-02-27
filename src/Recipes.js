@@ -62,8 +62,8 @@ function Recipes() {
         if (Likeres.status >= 400) {
           throw new Error("Error Liking");
         } else {
+          setLiked(Likeres);
           console.log(Likeres);
-          console.log('hi');
         }
       } catch (error) {
         console.log(error);
@@ -87,6 +87,7 @@ function Recipes() {
         if (Disres.status >= 400) {
           throw new Error("Error Disliking");
         } else {
+          setLiked(Disres);
           console.log(Disres);
         }
       } catch (error) {
@@ -97,6 +98,15 @@ function Recipes() {
     } else {
       setPos(0);
     }
+  }
+  
+  async function HandleSkip(){
+  if (Pos<Recipes.length -1){
+    setPos(Pos+1);
+  }else{
+    setPos(0);
+  }
+
   }
   async function HandleRecipeInfo() {
     navigate("/recipe-info", { state: { _id: Recipes[Pos]._id, token: Token, user: location.state.user ,Pos:Pos} });
@@ -110,11 +120,9 @@ function Recipes() {
   }
 
   if (Recipes && (Pos >= 0) && (Loaded == 1)) {
-  
+    const temp = Object.values(Liked);
     return (
-
       <div className="App">
-
         <div key={Recipes[Pos]._id} className="background">
           <h1 className="RecipeTitle">{Recipes[Pos].title}</h1>
           <h2 className="PrepTime">Prep Time: {Recipes[Pos].prepTime}</h2>
@@ -127,10 +135,13 @@ function Recipes() {
           </button>
           <button className="DislikeButton" onClick={HandleDislike}></button>
           <button className="LikeButton" onClick={HandleLike}></button>
+          <button className="SkipButton" onClick={HandleSkip}></button>
         </div>
-      </div>
+        </div>
+      );
 
-    )
+        
+    
   } else {
     return (<div className = "background">
       <ReactLoading className = "Loading" type = "spin" color = "#4A76E9" height={100} width={100}/>
