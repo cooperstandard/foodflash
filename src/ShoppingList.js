@@ -13,6 +13,7 @@ function ShoppingList() {
     const [Saved, setSaved] = useState();
     const [Token, setToken] = useState();
     const [Pos, setPos] = useState();
+    const [Ingredients, setIngredients] = useState([]);
     const isInitialMount = useRef(true);
 
     async function HandleSaved() {
@@ -20,7 +21,7 @@ function ShoppingList() {
             method: 'GET',
             headers: { 'Content-Type': 'application/json', 'authorization': 'Bearer ' + location.state.token },
         };
-        const response = await fetch('https://concierge.cooperstandard.org/api/recipe/all', getRec);
+        const response = await fetch('https://concierge.cooperstandard.org/api/recipe/viewLiked', getRec);
         const Liked = await response.json();
         setSaved(Liked);
     }
@@ -28,8 +29,13 @@ function ShoppingList() {
         navigate("/recipes", { state: { token: location.state.token, user: location.state.user, Pos: location.state.Pos } })
     }
 
-    function HandleSavedRecipe(){
-        navigate("/saved",{state:{token: Token, Pos:Pos}})
+    function HandleSavedRecipe() {
+        navigate("/saved", { state: { token: Token, Pos: Pos } })
+    }
+    function handleDeleteIngredient(index) {
+        const updatedIngredients = [...Ingredients];
+        updatedIngredients.splice(index, 1);
+        setIngredients(updatedIngredients);
     }
 
     useEffect(() => {
@@ -43,6 +49,14 @@ function ShoppingList() {
             //console.log(Saved);
         }
     });
+
+    useEffect(() => {
+        if (Saved) {
+            const ingredientsList = Saved.recipes.map(recipe => recipe.ingredients.map((ingredient) => <li>{ingredient}</li>));
+            setIngredients(ingredientsList.flat());
+        }
+    }, [Saved]);
+
     if (Saved) {
         return (
 
@@ -54,23 +68,20 @@ function ShoppingList() {
                         </button>
                         <h1 className='SavedTitle'>Shopping List</h1>
 
-                        <ul className='shopping-list-container'>{Saved.map(recipe => {
-                            return (
-                                <div className='shopping-list-item' key={recipe._id}>
-                                    <span className='saved-recipes-test'>
-                                    <p>{recipe.ingredients}</p>
-                                    <button className ='delete-recipe-button'></button>
-                                    <button className ='info-recipe-button'></button>
-                                    </span>
+                        <ul className='saved-recipe-container'>
+                            {Ingredients.map((ingredient, index) => (
+                                <div>
+                                <div key={index}>{ingredient} 
                                 </div>
-                            )
-                        })}
+                                <button className='delete-recipe-button' onClick={() => handleDeleteIngredient(index)}></button>
+                                </div>
+                            ))}
+                            
                         </ul>
-                        
+
                         <button className="shopping-list-button">
-                            <span onClick= {HandleSavedRecipe}className="shopping-list-text"><span>Saved Recipes</span></span>
+                            <span onClick={HandleSavedRecipe} className="shopping-list-text"><span>Saved Recipes</span></span>
                         </button>
-                        
 
                     </div>
                 </div>

@@ -20,15 +20,20 @@ function SavedRecipes() {
             method: 'GET',
             headers: { 'Content-Type': 'application/json', 'authorization': 'Bearer ' + location.state.token },
         };
-        const response = await fetch('https://concierge.cooperstandard.org/api/user/liked', getRec);
+        const response = await fetch('https://concierge.cooperstandard.org/api/recipe/viewLiked', getRec);
         const Liked = await response.json();
         setSaved(Liked);
     }
     function HandleBack() {
         navigate("/recipes", { state: { token: location.state.token, user: location.state.user, Pos: location.state.Pos } })
     }
-    function HandleShoppingList(){
-        navigate("/shoppinglist",{state:{token: Token, Pos:Pos}})
+    function HandleShoppingList() {
+        navigate("/shoppinglist", { state: { token: Token, Pos: Pos } })
+    }
+
+    function handleDeleteRecipe(recipeId) {
+        const updatedRecipes = Saved.recipes.filter(recipe => recipe.title !== recipeId);
+        setSaved({ ...Saved, recipes: updatedRecipes });
     }
 
     useEffect(() => {
@@ -53,23 +58,26 @@ function SavedRecipes() {
                         </button>
                         <h1 className='SavedTitle'>Saved Recipes</h1>
 
-                        <ul className='saved-recipe-container'>{Saved.recipes.map(recipe => {
-                            return (
-                                <div className='saved-recipe-item' key={recipe}>
-                                    <span className='saved-recipes-test'><span>{recipe}</span>
-                                    <button className ='delete-recipe-button'></button>
-                                    <button className ='info-recipe-button'></button>
-                                    </span>
-                                </div>
-                                
-                            )
-                        })}
+                        <ul className='saved-recipe-container'>
+                            {Saved.recipes.map(recipe => {
+                                return (
+                                    <div className='saved-recipe-item' key={recipe.title}>
+                                        <span className='saved-recipes-test'>
+                                            <span>{recipe.title}</span>
+                                            <button className='delete-recipe-button' onClick={() => handleDeleteRecipe(recipe.title)}></button>
+                                            <button className='info-recipe-button'></button>
+                                        </span>
+                                    </div>
+                                )
+                            })}
                         </ul>
-                        
+
+
+
                         <button className="shopping-list-button">
-                            <span onClick ={HandleShoppingList} className="shopping-list-text"><span>Shopping List</span></span>
+                            <span onClick={HandleShoppingList} className="shopping-list-text"><span>Shopping List</span></span>
                         </button>
-                        
+
 
                     </div>
                 </div>
