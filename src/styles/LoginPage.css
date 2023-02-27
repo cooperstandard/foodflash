@@ -72,6 +72,7 @@
     height: 47px;
     left: 32px;
     top: 279px;
+    border-radius: 10px;
 }
 
 .passwordBox {
@@ -80,6 +81,7 @@
     height: 47px;
     left: 32px;
     top: 362px;
+    border-radius: 10px;
     -webkit-text-security: disc;
 }
 
@@ -89,6 +91,7 @@
     height: 47px;
     left: 32px;
     top: 445px;
+    border-radius: 10px;
 }
 
 .errorText {
@@ -113,6 +116,7 @@
     height: 47px;
     left: 32px;
     top: 362px;
+    border-radius: 10px;
 }
 .CreateAccPasswordBox {
     position: absolute;
@@ -120,6 +124,7 @@
     height: 47px;
     left: 32px;
     top: 445px;
+    border-radius: 10px;
     -webkit-text-security: disc;
 }
 .EmailErrorText {
