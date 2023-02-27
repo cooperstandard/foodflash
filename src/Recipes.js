@@ -109,7 +109,7 @@ function Recipes() {
 
   }
   async function HandleRecipeInfo() {
-    navigate("/recipe-info", { state: { _id: Recipes[Pos]._id, token: Token, user: location.state.user ,Pos:Pos} });
+    navigate("/recipe-info", { state: { _id: Recipes[Pos]._id, token: Token, user: location.state.user ,Pos:Pos,isSaved:0} });
   }
 
   function HandleAccount() {

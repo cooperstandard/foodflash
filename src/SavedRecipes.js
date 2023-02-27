@@ -53,6 +53,10 @@ function SavedRecipes() {
         const Liked = await response.json();
         return Liked[0]._id;
     }
+    async function handleRecipeInfo(title) {
+        const ID = await getID(title);
+        navigate("/recipe-info", { state: { _id: ID, token: Token, user: location.state.user ,Pos:location.state.Pos,isSaved:1} });
+      }
     useEffect(() => {
         if (isInitialMount.current) {
             isInitialMount.current = false;
@@ -83,7 +87,7 @@ function SavedRecipes() {
                                         <span className='saved-recipes-test'>
                                             <span>{recipe.title}</span>
                                             <button className='delete-recipe-button' onClick={() => handleDeleteRecipe(recipe.title)}></button>
-                                            <button className='info-recipe-button'></button>
+                                            <button className='info-recipe-button' onClick={() => handleRecipeInfo(recipe.title)}></button>
                                         </span>
                                     </div>
                                 )

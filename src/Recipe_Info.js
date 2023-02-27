@@ -30,7 +30,11 @@ function RecipeInfo() {
         }
     });
     function HandleBack() {
+        if (location.state.isSaved == 0){
         navigate("/recipes", { state: { token: location.state.token,user:location.state.user , Pos:location.state.Pos} })
+        }else{
+        navigate("/saved", {state: {token:location.state.token, user:location.state.user,Pos:location.state.Pos}})   
+        }
     }
 
     if (Recipe) {
