@@ -39,9 +39,9 @@ function RecipeInfo() {
     }
     function HandleToggle() {
         if (location.state.Toggle == 0) {
-            navigate("/recipe-info", { state: { token: location.state.token, user: location.state.user, Pos: location.state.Pos, isSaved: location.state.isSaved,_id:location.state._id, Toggle: 1 } })
+            navigate("/recipe-info", { state: { token: location.state.token, user: location.state.user, Pos: location.state.Pos, isSaved: location.state.isSaved, _id: location.state._id, Toggle: 1 } })
         } else {
-            navigate("/recipe-info", { state: { token: location.state.token, user: location.state.user, Pos: location.state.Pos, isSaved: location.state.isSaved, _id:location.state._id,Toggle: 0 } })
+            navigate("/recipe-info", { state: { token: location.state.token, user: location.state.user, Pos: location.state.Pos, isSaved: location.state.isSaved, _id: location.state._id, Toggle: 0 } })
         }
         //console.log(location.state.Toggle);
     }
@@ -50,7 +50,8 @@ function RecipeInfo() {
         return (
 
             <div className="InfoBackground">
-                <div className="Header">
+                <div className="Header" style={{position:'-webkit-sticky',position:'sticky'}}>
+                    <div className="HeaderBG"></div>
                     <div className="RecipeTitle" style={{ textTransform: 'Capitalize' }}>{Recipe.title}</div>
                     <div className="BackButton" onClick={HandleBack}>Back</div>
                 </div>
@@ -63,9 +64,9 @@ function RecipeInfo() {
                             <div className="ToggleBackground" onClick={HandleToggle}></div>
                             <div className="IngredientsButton"></div>
                             <div className="IngredientsText">Ingredients</div>
-                            <div className="InstructionsText" style={{ color: "#BDBDBD"}} onClick={HandleToggle}>Instructions</div>
+                            <div className="InstructionsText" style={{ color: "#BDBDBD" }} onClick={HandleToggle}>Instructions</div>
                         </div>
-                        <div className = "info-Title">Ingredients</div>
+                        <div className="info-Title">Ingredients</div>
                         <ul className="ingredient-container">
                             {Recipe.ingredients.map(ingredient => {
                                 return (
@@ -83,12 +84,12 @@ function RecipeInfo() {
                     <div>
                         <div className="Toggle">
                             <div className="ToggleBackground" onClick={HandleToggle}></div>
-                            <div className="IngredientsText" style={{ color: "#BDBDBD"}} onClick={HandleToggle}>Ingredients</div>
+                            <div className="IngredientsText" style={{ color: "#BDBDBD" }} onClick={HandleToggle}>Ingredients</div>
                             <div className="InstructionsButton"></div>
-                            <div className="InstructionsText" style={{ color: "#4A76E9"}}>Instructions</div>
+                            <div className="InstructionsText" style={{ color: "#4A76E9" }}>Instructions</div>
                         </div>
-                        <div className = "info-Title">Instructions</div>
-                        <div className = "InstructionsBody">{Recipe.instructions}</div>
+                        <div className="info-Title">Instructions</div>
+                        <div className="InstructionsBody">{Recipe.instructions}</div>
                     </div>
                 )}
 
