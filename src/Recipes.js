@@ -131,9 +131,15 @@ function Recipes() {
           </div>
           <h2 className="PrepTime">Prep Time: {Recipes[Pos].prepTime}</h2>
           <img src={Recipes[Pos].photos[0]} className="RecipeImage" onClick={HandleRecipeInfo}></img>
-          <button className="DislikeButton" onClick={HandleDislike}></button>
-          <button className="LikeButton" onClick={HandleLike}></button>
-          <button className="SkipButton" onClick={HandleSkip}></button>
+          <button className="DislikeButton" onClick={HandleDislike}>
+            <img src = "https://cdn-icons-png.flaticon.com/512/9451/9451075.png" style={{width:"45px",height:"45px",position:"absolute",right:"23px",bottom:"21px"}}></img>
+          </button>
+          <button className="LikeButton" onClick={HandleLike}>
+            <img src = "https://cdn-icons-png.flaticon.com/512/9741/9741124.png" style={{width:"50px",height:"50px",position:"absolute",right:"23px",bottom:"21px"}}></img>
+          </button>
+          <button className="SkipButton" onClick={HandleSkip}>
+          <img src = "https://cdn-icons-png.flaticon.com/512/3585/3585438.png" style={{width:"40px",height:"40px",position:"absolute",right:"13px",bottom:"14px"}}></img>
+          </button>
         </div>
       </div>
     );
