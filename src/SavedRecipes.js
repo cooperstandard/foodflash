@@ -89,11 +89,13 @@ function SavedRecipes() {
                     {Saved.recipes.map(recipe => {
                         return (
                             <div className='saved-recipe-item' key={recipe.title}>
-                                <span className='saved-recipes-test'>
-                                    <span>{recipe.title}</span>
-                                    <button className='delete-recipe-button' onClick={() => handleDeleteRecipe(recipe.title)}></button>
-                                    <button className='info-recipe-button' onClick={() => handleRecipeInfo(recipe.title)}></button>
-                                </span>
+                                <div className='saved-recipes-test' style={{ textTransform: 'Capitalize' }}>{recipe.title}</div>
+                                <button className='delete-recipe-button' onClick={() => handleDeleteRecipe(recipe.title)}>
+                                    <img src = "https://cdn-icons-png.flaticon.com/512/1828/1828843.png"  style={{position : "relative",width:"25px",height:"25px" ,bottom:"3px",right:"7.2px"}}></img>
+                                </button>
+                                <button className='info-recipe-button' onClick={() => handleRecipeInfo(recipe.title)}>
+                                    <img src = "https://cdn-icons-png.flaticon.com/512/471/471662.png" style={{position : "relative",width:"25px",height:"25px" ,bottom:"3px",right:"6.1px"}}></img>
+                                </button>
                             </div>
                         )
                     })}

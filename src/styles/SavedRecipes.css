@@ -85,6 +85,7 @@
     line-height: normal;
     font-stretch: normal;
     text-decoration: none;
+    left:45px;
   }
 
   
@@ -104,7 +105,9 @@
     position: relative;
     width: 25px;
     height: 25px;
-    background: #293DA3;
+    left:125px;
+    border:0px;
+    bottom: 3px;
     border-radius: 50%;
   }
   
@@ -112,7 +115,9 @@
     position: relative;
     width: 25px;
     height: 25px;
-    background: #FF0006;
+    right:125px;
+    bottom:3px;
+    border: 0px;
     border-radius: 50%;
   }
   .shopping-list-item{
