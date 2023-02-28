@@ -2,6 +2,7 @@
 import './styles/Recipes.css';
 import './styles/App.css'
 import './styles/index.css'
+import './styles/Recipe_info.css'
 import Axios from 'axios';
 import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { useParams, useLocation, useNavigate, useNavigation } from 'react-router-dom';
@@ -26,42 +27,77 @@ function RecipeInfo() {
             isInitialMount.current = false;
             HandleRecipe();
         } else {
-           // console.log(Recipe);
+            console.log(Recipe);
         }
     });
     function HandleBack() {
-        if (location.state.isSaved == 0){
-        navigate("/recipes", { state: { token: location.state.token,user:location.state.user , Pos:location.state.Pos} })
-        }else{
-        navigate("/saved", {state: {token:location.state.token, user:location.state.user,Pos:location.state.Pos}})   
+        if (location.state.isSaved == 0) {
+            navigate("/recipes", { state: { token: location.state.token, user: location.state.user, Pos: location.state.Pos } })
+        } else {
+            navigate("/saved", { state: { token: location.state.token, user: location.state.user, Pos: location.state.Pos } })
         }
+    }
+    function HandleToggle() {
+        if (location.state.Toggle == 0) {
+            navigate("/recipe-info", { state: { token: location.state.token, user: location.state.user, Pos: location.state.Pos, isSaved: location.state.isSaved,_id:location.state._id, Toggle: 1 } })
+        } else {
+            navigate("/recipe-info", { state: { token: location.state.token, user: location.state.user, Pos: location.state.Pos, isSaved: location.state.isSaved, _id:location.state._id,Toggle: 0 } })
+        }
+        //console.log(location.state.Toggle);
     }
 
     if (Recipe) {
         return (
 
             <div className="InfoBackground">
-                <div className = "Header">
-                <div className = "RecipeTitle">{Recipe.title}</div>
-                <div className = "BackButton" onClick={HandleBack}>Back</div>
+                <div className="Header">
+                    <div className="RecipeTitle" style={{ textTransform: 'Capitalize' }}>{Recipe.title}</div>
+                    <div className="BackButton" onClick={HandleBack}>Back</div>
                 </div>
                 <h2 className="PrepTime">Prep Time: {Recipe.prepTime}</h2>
                 <img src={Recipe.photos[0]} className="RecipeImage" onClick={HandleBack}></img>
-                
-                <ul className="Description">{Recipe.ingredients.map(ingredient => {
-                    return (
-                        <li key={ingredient}>{ingredient}</li>
-                    )
-                })}
-                    <h2>Instructions:</h2>
-                    <p>{Recipe.instructions}</p>
-                </ul>
+
+                {location.state.Toggle == 1 && (
+                    <div>
+                        <div className="Toggle">
+                            <div className="ToggleBackground" onClick={HandleToggle}></div>
+                            <div className="IngredientsButton"></div>
+                            <div className="IngredientsText">Ingredients</div>
+                            <div className="InstructionsText" style={{ color: "#BDBDBD"}} onClick={HandleToggle}>Instructions</div>
+                        </div>
+                        <div className = "info-Title">Ingredients</div>
+                        <ul className="ingredient-container">
+                            {Recipe.ingredients.map(ingredient => {
+                                return (
+                                    <div className="ingredient-item" key={ingredient}>
+                                        <span className="ingredient-text" style={{ textTransform: 'Capitalize' }}>
+                                            <span>{ingredient}</span>
+                                        </span>
+                                        <div className="Divider"></div>
+                                    </div>
+                                )
+                            })}
+                        </ul>
+                    </div>
+                )}{location.state.Toggle == 0 && (
+                    <div>
+                        <div className="Toggle">
+                            <div className="ToggleBackground" onClick={HandleToggle}></div>
+                            <div className="IngredientsText" style={{ color: "#BDBDBD"}} onClick={HandleToggle}>Ingredients</div>
+                            <div className="InstructionsButton"></div>
+                            <div className="InstructionsText" style={{ color: "#4A76E9"}}>Instructions</div>
+                        </div>
+                        <div className = "info-Title">Instructions</div>
+                        <div className = "InstructionsBody">{Recipe.instructions}</div>
+                    </div>
+                )}
+
             </div>
         );
     } else {
-        return (<div className = "background">
-        <ReactLoading className = "Loading" type = "spin" color = "#4A76E9" height={100} width={100}/>
-      </div>
+        return (<div className="background">
+            <ReactLoading className="Loading" type="spin" color="#4A76E9" height={100} width={100} />
+        </div>
         );
     }
 }

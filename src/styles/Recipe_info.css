@@ -1,0 +1,153 @@
+.ingredient-container {
+
+    padding-top: 760px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.ingredient-item {
+
+    width: 343px;
+    height: 40px;
+    margin-bottom: -5px;
+    text-align: left;
+}
+
+.ingredient-text {
+    position: relative;
+    width: 149px;
+    height: 19px;
+    left: 0px;
+    top: calc(50% - 19px/2 + 0.5px);
+    font-family: 'Comic Neue';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    /* Gray/03 */
+
+    color: #000;
+}
+
+.Divider {
+    position: relative;
+    height: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: -12px;
+
+    /* Gray/02 */
+
+    border: 1px solid #E8E8E8;
+}
+
+.Toggle {
+
+    position: absolute;
+    height: 50px;
+    left: 56px;
+    right: 55px;
+    top: 650px;
+}
+
+.ToggleBackground {
+    box-sizing: border-box;
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    /* Gray/01 */
+    background: #F6F6F6;
+    /* Gray/02 */
+    border: 1px solid #E8E8E8;
+    border-radius: 100px;
+
+}
+
+.IngredientsButton {
+    position: absolute;
+    left: 2px;
+    right: 132px;
+    top: 4%;
+    bottom: 4%;
+    /* White */
+
+    background: #FFFFFF;
+    border-radius: 100px;
+}
+
+.IngredientsText {
+    position: absolute;
+    width: 44px;
+    height: 19px;
+    left: calc(50% - 44px/2 - 83.5px);
+    top: calc(50% - 19px/2 + 0.5px);
+    font-family: 'Comic Neue';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #4A76E9;
+}
+
+.InstructionsText {
+    position: absolute;
+    width: 54px;
+    height: 19px;
+    left: 155px;
+    top: calc(50% - 19px/2 + 0.5px);
+    font-family: 'Comic Neue';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+
+}
+
+.InstructionsButton {
+    position: absolute;
+    left: 132.5px;
+    right: 1.5px;
+    top: 4%;
+    bottom: 4%;
+
+    /* White */
+
+    background: #FFFFFF;
+    border-radius: 100px;
+}
+
+.info-Title {
+    position: absolute;
+    width: 272px;
+    height: 36px;
+    left: 52px;
+    top: 720px;
+    font-family: 'Comic Neue';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+
+    color: #000000;
+
+}
+
+.InstructionsBody {
+    position: absolute;
+    height: 1045px;
+    left: 16px;
+    right: 16px;
+    top: 775px;
+    font-family: 'Comic Neue';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+}

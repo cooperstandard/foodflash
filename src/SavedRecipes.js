@@ -55,7 +55,7 @@ function SavedRecipes() {
     }
     async function handleRecipeInfo(title) {
         const ID = await getID(title);
-        navigate("/recipe-info", { state: { _id: ID, token: Token, user: location.state.user, Pos: location.state.Pos, isSaved: 1 } });
+        navigate("/recipe-info", { state: { _id: ID, token: Token, user: location.state.user, Pos: location.state.Pos, isSaved: 1, Toggle: 1 } });
     }
     useEffect(() => {
         if (isInitialMount.current) {
@@ -74,7 +74,7 @@ function SavedRecipes() {
 
 
             <div className="background">
-                
+
                 <div className="Header">
                     <div className="SavedTitle">Saved Recipes</div>
                     <div className="BackButton" onClick={HandleBack}>Back</div>

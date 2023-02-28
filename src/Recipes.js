@@ -109,7 +109,7 @@ function Recipes() {
 
   }
   async function HandleRecipeInfo() {
-    navigate("/recipe-info", { state: { _id: Recipes[Pos]._id, token: Token, user: location.state.user, Pos: Pos, isSaved: 0 } });
+    navigate("/recipe-info", { state: { _id: Recipes[Pos]._id, token: Token, user: location.state.user, Pos: Pos, isSaved: 0 ,Toggle:1} });
   }
 
   function HandleAccount() {
@@ -125,7 +125,7 @@ function Recipes() {
       <div className="App">
         <div key={Recipes[Pos]._id} className="background">
           <div className="Header">
-            <div className="RecipeTitle">{Recipes[Pos].title}</div>
+            <div className="RecipeTitle" style={{ textTransform: 'Capitalize' }}>{Recipes[Pos].title}</div>
             <div className="BackButton" onClick={HandleAccount}>Account</div>
             <div className="SavedButton" onClick={HandleSaved}>Saved</div>
           </div>
