@@ -89,7 +89,7 @@
 
   
   .saved-recipe-container{
-    padding-top: 120px;
+    padding-top: 160px;
     display: flex;
     flex-direction:column-reverse;
   }
@@ -120,7 +120,7 @@
     width: 320px;
   }
   .shopping-list-container{
-    padding-top: 120px;
+    padding-top: 160px;
     display: flex;
     flex-direction:column-reverse;
 

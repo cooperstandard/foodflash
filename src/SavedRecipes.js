@@ -76,10 +76,15 @@ function SavedRecipes() {
             <div className="background">
 
                 <div className="Header">
-                    <div className="SavedTitle">Saved Recipes</div>
+                    <div className="SavedTitle">Saved</div>
                     <div className="BackButton" onClick={HandleBack}>Back</div>
                 </div>
-
+                <div className="Toggle" style={{ top: "90px" }}>
+                    <div className="ToggleBackground" onClick={HandleShoppingList}></div>
+                    <div className="IngredientsButton"></div>
+                    <div className="IngredientsText" style= {{left:"40px"}}>Recipes</div>
+                    <div className="InstructionsText" style={{ color: "#BDBDBD",left:"165px"}} onClick={HandleShoppingList}>Shopping</div>
+                </div>
                 <ul className='saved-recipe-container'>
                     {Saved.recipes.map(recipe => {
                         return (
@@ -94,11 +99,6 @@ function SavedRecipes() {
                     })}
                 </ul>
 
-
-
-                <button className="shopping-list-button">
-                    <span onClick={HandleShoppingList} className="shopping-list-text"><span>Shopping List</span></span>
-                </button>
 
 
             </div>

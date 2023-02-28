@@ -195,8 +195,19 @@
     height: 36px;
     left: 16px;
     right: 16px;
-    top: 60px;
-
+    top: 30px;
+    z-index: 1;
+    
+}
+.HeaderBG {
+    position: absolute;
+    height: 150px;
+    width:390px;
+    left: 0px;
+    right: 0px;
+    top: -60px;
+    padding: 0px;
+    background: #FFFFFF;
 }
 
 .signupTitle {

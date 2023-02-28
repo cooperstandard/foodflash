@@ -2,6 +2,7 @@ import './styles/Recipes.css';
 import './styles/App.css'
 import './styles/index.css'
 import './styles/SavedRecipes.css'
+import './styles/Recipe_info.css'
 import Axios from 'axios';
 import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { useParams, useLocation, useNavigate } from 'react-router-dom';
@@ -61,30 +62,29 @@ function ShoppingList() {
         return (
 
             <div className='background'>
-                <div>
-                    <div className="saved-recipes-saved-recipes">
-                        <button onClick={HandleBack} className="BackButton">
-                            <h1 className="BackButtonText">Back</h1>
-                        </button>
-                        <h1 className='SavedTitle'>Shopping List</h1>
-
-                        <ul className='saved-recipe-container'>
-                            {Ingredients.map((ingredient, index) => (
-                                <div>
-                                <div key={index}>{ingredient} 
-                                </div>
-                                <button className='delete-recipe-button' onClick={() => handleDeleteIngredient(index)}></button>
-                                </div>
-                            ))}
-                            
-                        </ul>
-
-                        <button className="shopping-list-button">
-                            <span onClick={HandleSavedRecipe} className="shopping-list-text"><span>Saved Recipes</span></span>
-                        </button>
-
-                    </div>
+                <div className="Header">
+                    <div onClick={HandleBack} className="BackButton">Back</div>
+                    <div className='SavedTitle'>Saved</div>
                 </div>
+                <div className="Toggle" style={{ top: "90px" }}>
+                    <div className="ToggleBackground" onClick={HandleSavedRecipe}></div>
+                    <div className="IngredientsText" style={{ color: "#BDBDBD", left: "40px" }} onClick={HandleSavedRecipe}>Recipes</div>
+                    <div className="InstructionsButton"></div>
+                    <div className="InstructionsText" style={{ color: "#4A76E9", left: "165px" }}>Shopping</div>
+                </div>
+                <ul className='shopping-list-container'>
+                    {Ingredients.map((ingredient, index) => (
+                        <div>
+                            <div key={index}>{ingredient}
+                            </div>
+                            <button className='delete-recipe-button' onClick={() => handleDeleteIngredient(index)}></button>
+                        </div>
+                    ))}
+
+                </ul>
+
+
+
             </div>
 
 

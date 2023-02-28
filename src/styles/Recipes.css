@@ -24,7 +24,7 @@
 }
 
 .background {
-  position: relative;
+  position: absolute;
   /*width: 390px;
   height: 844px;*/
   width: 375px;
@@ -72,15 +72,7 @@
   border-radius: 50%;
 }
 
-.SavedButtonShape {
-  position: absolute;
-  width: 60px;
-  height: 25px;
-  left: 0px;
-  top: 0px;
-  background: #4A76E9;
-  border-radius: 100px;
-}
+
 
 .PrepTime {
   position: absolute;
@@ -130,7 +122,7 @@
   position: absolute;
   width: 38px;
   height: 19px;
-  left: 0px;
+  left: 15px;
   top: calc(50% - 19px/2 - 0.5px);
   font-family: 'Comic Neue';
   font-style: normal;
@@ -138,24 +130,9 @@
   font-size: 20px;
   line-height: 19px;
   color: #4A76E9;
+
 }
 
-.BackButtonText {
-  position: absolute;
-  left: 11.67%;
-  right: 16.67%;
-  top: -67%;
-
-  font-family: 'Comic Neue';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 23px;
-  /* identical to box height */
-
-
-  color: #FFFFFF;
-}
 
 .Description {
   position: absolute;
@@ -175,10 +152,10 @@
 
 .RecipeTitle {
   position: absolute;
-  width: 113px;
+  width: calc(340px - 15px);
   height: 36px;
-  left: calc(50% - 113px/2 + 2px);
-  top: 0px;
+  left: 15px;
+  top: 50px;
   /* UI - 30 Semi */
 
   font-family: "Comic Neue";
@@ -186,7 +163,7 @@
   font-weight: 600;
   font-size: 30px;
   line-height: 36px;
-  text-align: center;
+  text-align: left;
 
   /* Black */
 
@@ -232,7 +209,7 @@
   position: absolute;
   width: 39px;
   height: 19px;
-  right: 0px;
+  right: 15px;
   top: 8px;
   font-family: 'Comic Neue';
   font-style: normal;
