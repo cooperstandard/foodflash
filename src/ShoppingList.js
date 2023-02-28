@@ -31,7 +31,7 @@ function ShoppingList() {
     }
 
     function HandleSavedRecipe() {
-        navigate("/saved", { state: { token: Token, Pos: Pos } })
+        navigate("/saved", { state: { token: Token, user: location.state.user, Pos: Pos } })
     }
     function handleDeleteIngredient(index) {
         const updatedIngredients = [...Ingredients];
@@ -78,7 +78,7 @@ function ShoppingList() {
                             <div key={index}>{ingredient}
                             </div>
                             <button className='delete-recipe-button' onClick={() => handleDeleteIngredient(index)}>
-                            <img src = "https://cdn-icons-png.flaticon.com/512/1828/1828843.png"  style={{position : "relative",width:"25px",height:"25px" ,bottom:"3px",right:"7.2px"}}></img>
+                                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png" style={{ position: "relative", width: "25px", height: "25px", bottom: "3px", right: "7.2px" }}></img>
                             </button>
                         </div>
                     ))}

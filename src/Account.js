@@ -16,7 +16,7 @@ function Account() {
     function HandleLogout() {
         navigate("/login");
     }
-    if (location.state.token) {
+    if (location.state.token && location.state.user) {
         return (
             <div className='background'>
                 <div className = "Header">

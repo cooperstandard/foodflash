@@ -29,7 +29,7 @@ function SavedRecipes() {
         navigate("/recipes", { state: { token: location.state.token, user: location.state.user, Pos: location.state.Pos } })
     }
     function HandleShoppingList() {
-        navigate("/shoppinglist", { state: { token: Token, Pos: Pos } })
+        navigate("/shoppinglist", { state: { token: Token, Pos: Pos , user: location.state.user, Pos: location.state.Pos } })
     }
     async function handleDeleteRecipe(recipeTitle) {
         const ID = await getID(recipeTitle);
@@ -63,13 +63,12 @@ function SavedRecipes() {
             setToken(location.state.token);
             setPos(location.state.Pos);
             HandleSaved();
-
         } else {
             //console.log(Token);
             //console.log(Saved);
         }
     });
-    if (Saved) {
+    if (Saved && location.state.user) {
         return (
 
 

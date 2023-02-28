@@ -116,10 +116,10 @@ function Recipes() {
     navigate("/account", { state: { token: Token, user: location.state.user, Pos: Pos } })
   }
   function HandleSaved() {
-    navigate("/saved", { state: { token: Token, Pos: Pos } })
+    navigate("/saved", { state: { token: Token,user: location.state.user,Pos: Pos } })
   }
 
-  if (Recipes && (Pos >= 0) && (Loaded == 1)) {
+  if (Recipes && (Pos >= 0) && (Loaded == 1) && location.state.user) {
     const temp = Object.values(Liked);
     return (
       <div className="App">

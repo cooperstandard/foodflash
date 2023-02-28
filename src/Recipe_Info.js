@@ -27,7 +27,7 @@ function RecipeInfo() {
             isInitialMount.current = false;
             HandleRecipe();
         } else {
-            console.log(Recipe);
+            //console.log(Recipe);
         }
     });
     function HandleBack() {
