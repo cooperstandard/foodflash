@@ -122,14 +122,15 @@ function Recipes() {
   if (Recipes && (Pos >= 0) && (Loaded == 1) && location.state.user) {
     const temp = Object.values(Liked);
     return (
-      <div className="App">
+
         <div key={Recipes[Pos]._id} className="background">
           <div className="Header">
             <div className="RecipeTitle" style={{ textTransform: 'Capitalize' }}>{Recipes[Pos].title}</div>
             <div className="BackButton" onClick={HandleAccount}>Account</div>
             <div className="SavedButton" onClick={HandleSaved}>Saved</div>
+            <img src = "https://cdn-icons-png.flaticon.com/512/2088/2088617.png" style={{width:"20px",height:"20px",position:"absolute",left:"15px", top:"118px"}}></img>
+            <div className="PrepTime">{Recipes[Pos].prepTime}</div>
           </div>
-          <h2 className="PrepTime">Prep Time: {Recipes[Pos].prepTime}</h2>
           <img src={Recipes[Pos].photos[0]} className="RecipeImage" onClick={HandleRecipeInfo}></img>
           <button className="DislikeButton" onClick={HandleDislike}>
             <img src = "https://cdn-icons-png.flaticon.com/512/9451/9451075.png" style={{width:"45px",height:"45px",position:"absolute",right:"23px",bottom:"21px"}}></img>
@@ -141,7 +142,7 @@ function Recipes() {
           <img src = "https://cdn-icons-png.flaticon.com/512/3585/3585438.png" style={{width:"40px",height:"40px",position:"absolute",right:"13px",bottom:"14px"}}></img>
           </button>
         </div>
-      </div>
+
     );
 
 

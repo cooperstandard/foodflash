@@ -78,17 +78,15 @@
   position: absolute;
   width: 138px;
   height: 16px;
-  left: 232px;
-  top: 145px;
-
+  left: 12px;
+  top: 120.5px;
+  align-self: left;
   font-family: 'Comic Neue';
   font-style: normal;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 16px;
   /* identical to box height */
-
-
   color: #000000;
 }
 
