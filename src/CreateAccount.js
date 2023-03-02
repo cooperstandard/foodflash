@@ -50,7 +50,7 @@ class CreateAccount extends React.Component {
                
                 <form onSubmit={this.HandleRegister}>
                     <input type="text" id="email" name="email" className="emailBox" placeholder="Email"></input>
-                    <input type="text" id="name" name="name" className="CreateAccUsernameBox" placeholder="Username"></input>
+                    <input type="text" id="name" name="name" className="CreateAccUsernameBox" placeholder="Name"></input>
                     <input type="text" id="password" name="password" className="CreateAccPasswordBox" placeholder="Password"></input>
                     <button type="submit" className="createAccButton">
                         <div className="createAccText">Sign Up</div>
