@@ -25,7 +25,7 @@ class CreateAccount extends React.Component {
         const signupRes = await response.json();
         if (signupRes.success == true) {
             //console.log(signupRes)
-            this.setState({ user_id: signupRes.data.userID, token: signupRes.data.token });
+            this.setState({ user_id: signupRes.data.userId, token: signupRes.data.token });
         }else{
             this.setState({error:true});
         }
@@ -44,8 +44,7 @@ class CreateAccount extends React.Component {
                 </Link>
                 </div>
                 {(this.state.token) && (
-
-                    <Navigate to="/recipes" replace={true} state={{ token: this.state.token, user: this.state.user_id, Pos: 1 }} />
+                    <Navigate to="/recipes" replace={true} state={{ token: this.state.token, user: this.state.user_id, pos: 1 }} />
                 )}
                
                 <form onSubmit={this.HandleRegister}>
