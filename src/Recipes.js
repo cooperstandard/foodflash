@@ -22,7 +22,9 @@ function Recipes() {
   async function HandleRecipes() {
     try {
       const response = await fetch("https://concierge.cooperstandard.org/api/recipe/all");
+      //console.log(await response.json())
       const data = await response.json();
+      //console.log(data)
       if (typeof (data) !== 'undefined') {
         setRecipes(data);
         setLoaded(1);
@@ -43,6 +45,7 @@ function Recipes() {
       HandleRecipes();
       setToken(location.state.token);
       setPos(location.state.Pos);
+      
     } else {
       //console.log(Token);
       //console.log(Recipes);
