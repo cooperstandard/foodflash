@@ -54,8 +54,6 @@ function RecipeInfo() {
                     <div className="HeaderBG"></div>
                     <div className="RecipeTitle" style={{ textTransform: 'Capitalize' }}>{Recipe.title}</div>
                     <div className="BackButton" onClick={HandleBack}>Back</div>
-                    <img src = "https://cdn-icons-png.flaticon.com/512/2088/2088617.png" style={{width:"20px",height:"20px",position:"absolute",left:"15px", top:"118px"}}></img>
-                    <div className="PrepTime">{Recipe.prepTime}</div>
                 </div>
                 <img src={Recipe.photos[0]} className="RecipeImage" onClick={HandleBack}></img>
 

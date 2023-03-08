@@ -49,6 +49,7 @@
     left: 56px;
     right: 55px;
     top: 650px;
+    cursor:pointer;
 }
 
 .ToggleBackground {

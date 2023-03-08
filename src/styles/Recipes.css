@@ -38,6 +38,7 @@
   height: 456px; 
   width: 369px; 
   object-fit: cover;
+  cursor:pointer;
 }
 
 
@@ -49,6 +50,7 @@
   top: 680px;
   background: #00B937;
   border-radius: 50%;
+  cursor:pointer;
 }
 
 .DislikeButton {
@@ -59,6 +61,7 @@
   top: 680px;
   background: #FF0006;
   border-radius: 50%;
+  cursor:pointer;
 }
 
 .SkipButton {
@@ -67,7 +70,7 @@
   height: 73px;
   left: 159px;
   top: 749px;
-
+  cursor:pointer;
   background: #FFA500;
   border-radius: 50%;
 }
@@ -127,7 +130,7 @@
   font-size: 20px;
   line-height: 19px;
   color: #4A76E9;
-
+  cursor:pointer;
 }
 
 
@@ -173,7 +176,7 @@
   height: 25px;
   left: 20px;
   top: 17px;
-
+  cursor:pointer;
   border-radius: 100px;
   background: #4A76E9;
 }
@@ -211,6 +214,7 @@
   font-size: 20px;
   line-height: 19px;
   color: #4A76E9;
+  cursor:pointer;
 }
 
 .SavedButtonText {

@@ -13,6 +13,7 @@
 
     background: #4A76E9;
     border-radius: 100px;
+    cursor:pointer;
 }
 
 .createAccText {
@@ -39,6 +40,7 @@
     left: 32px;
     top: 714px;
 */
+cursor:pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
