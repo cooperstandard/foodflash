@@ -16,6 +16,9 @@ function Account() {
     function HandleLogout() {
         navigate("/login");
     }
+    function HandleFeedback(){
+        navigate("/feedback", { state: { token: location.state.token, user: location.state.user, Pos: location.state.Pos } })
+    }
     if (location.state.token && location.state.user) {
         return (
             <div className='background'>
@@ -28,6 +31,9 @@ function Account() {
                 </div>
                 <button className="loginButton" onClick={HandleLogout}>
                     <div className="loginBText">Logout</div>
+                </button>
+                <button className="loginButton" onClick={HandleFeedback} style={{ top :"525px" }} >
+                    <div className="loginBText" style ={{width:"200px"}}>Give us Feedback!</div>
                 </button>
             </div>
 

@@ -7,6 +7,7 @@ import RecipeInfo from './Recipe_Info.js';
 import Account from './Account';
 import SavedRecipes from './SavedRecipes';
 import ShoppingList from './ShoppingList';
+import Feedback from './Feedback';
 import './styles/index.css'
 import { Routes, Route, useLocation } from 'react-router-dom';
 
@@ -25,6 +26,7 @@ const Main = () => {
       <Route exact path='/account' element={<Account />}></Route>
       <Route exact path='/saved' element={<SavedRecipes/>}></Route>
       <Route exact path='/shoppinglist' element={<ShoppingList/>}></Route>
+      <Route exact path='/feedback' element={<Feedback/>}></Route>
     </Routes>
 
 
