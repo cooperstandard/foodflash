@@ -24,22 +24,22 @@
 }
 
 .background {
-  position: absolute;
-  /*width: 390px;
-  height: 844px;*/
-  width: 375px;
-  height: 812px;
+  width: 380px;
+  height: 850px;
+  position: relative;
   background: #0000;
 }
 
-
 .RecipeImage {
   position: absolute;
-  width: 369px;
-  height: 456px;
-  left: 11px;
-  top: 176px;
+  top: 50%; 
+  left: 53%; 
+  transform: translate(-50%, -50%);
+  height: 456px; 
+  width: 369px; 
+  object-fit: cover;
 }
+
 
 .LikeButton {
   position: absolute;
@@ -109,11 +109,10 @@
 }
 
 .InfoBackground {
+  width: 380px;
+  height: 850px;
   position: relative;
-  width: 375px;
-  height: 1545px;
-
-  background: #FFFFFF;
+  background: #FFFF;
 }
 
 .BackButton {
@@ -191,10 +190,7 @@
   font-size: 20px;
   line-height: 23px;
   /* identical to box height */
-
-
   color: #FFFFFF;
-
 }
 
 .Loading {
